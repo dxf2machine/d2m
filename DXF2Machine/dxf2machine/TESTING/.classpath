@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="TESTING/" including=".classpath|.project|.settings/|Aide/|MANIFEST.MF|bin/|firu.dxf|images/|myColeccion/|myDXF/|myOptimizacion/|projectSet.psf|representations-20150320_1046.aird.old|representations.aird|sampledrawing.dxf|src/|todo" kind="src" output="TESTING" path=""/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="output" path="src"/>
+</classpath>

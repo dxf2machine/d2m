@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<psf version="2.0">
+<provider id="org.eclipse.team.svn.core.svnnature">
+<project reference="1.0.1,https://notebook/svn/UNQ2/DXF,DXF,8004d93d8f4e00141147bc68b034ed95;https://Notebook/svn/UNQ2/;https://Notebook/svn/UNQ2/;branches;tags;trunk;true;86253523-903e-bb4e-951d-66ad7d868b45;https://notebook/svn/UNQ2;;false;&lt;https://notebook:443&gt; VisualSVN Server;;0"/>
+</provider>
