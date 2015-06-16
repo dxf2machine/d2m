@@ -32,7 +32,12 @@ import myDXF.DXF_Loader;
 import myDXF.Graphics.myCanvas;
 
 ;
-
+/**
+ * This class access the general table of entities of DXF project and collect the admitted entities for DXF2Machine in a new table.
+ * @author: Celeste G. Guagliano
+ * @version: 13/01/15
+ * 
+ */ 
 public class Tabla {
 
 	public static HashSet ListaEntidades = new HashSet();

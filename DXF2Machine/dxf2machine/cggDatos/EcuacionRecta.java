@@ -12,6 +12,13 @@ You should have received a copy of the GNU General Public License along with DXF
 
 package cggDatos;
 
+/**
+ * This class defines the structure of EcuacionRecta.
+ * EcuacionRecta is a data structure that stores the parameters of the equation of a given line.
+ * @author: Celeste G. Guagliano
+ * @version: 13/01/15
+ * 
+ */ 
 public class EcuacionRecta extends EcuacionEntidad {
 	public double A;  
 	public double B;  

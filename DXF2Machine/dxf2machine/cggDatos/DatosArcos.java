@@ -15,6 +15,14 @@ package cggDatos;
 import cggGCode.GCode;
 import cggGCode.compensacionContorno;
 
+/**
+ * This class defines the structure of DatosArcos
+ * DatosArcos is a data structure that stores the parameters needed to generate an arc.
+ * @author: Celeste G. Guagliano
+ * @version: 13/01/15
+ * 
+ */ 
+
 public class DatosArcos extends datos {
 	public double radio, Xcentro, Ycentro, AngI, AngF;
 

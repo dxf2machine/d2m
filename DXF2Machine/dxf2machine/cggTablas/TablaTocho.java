@@ -19,9 +19,14 @@ import javax.swing.JTextArea;
 
 import cggColeccion.ColeccionFunciones;
 import cggDatos.datos;
-import cggGCode.EnsambladoGCode;
 import cggGCode.GCode;
 
+/**
+ * This class resets the stock table.
+ * @author: Celeste G. Guagliano
+ * @version: 13/01/15
+ * 
+ */ 
 public class TablaTocho {
 	public static Hashtable ListaTocho = new Hashtable();
 
@@ -31,11 +36,7 @@ public class TablaTocho {
 	}
 
 	public static Hashtable ObtenerTabla() {
-		// Tengo que tomar los elementos de la tabla contornos, calcular minimos
-		// y maximos
-		// y armar las entidades necesarias para recorrer dicha superficie
 		resetearTablas();
-		// GCode.GenerarPlaneado(ListaTocho);
 		return ListaTocho;
 	}
 }

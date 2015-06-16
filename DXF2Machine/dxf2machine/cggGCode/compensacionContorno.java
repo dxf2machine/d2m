@@ -29,6 +29,12 @@ import cggDatos.Herramienta;
 import cggDatos.datos;
 import cggOptimizacion.OptimizacionMetodo2;
 
+/**
+ * This class implements the necessary algorithms to calculate a new contour compensating the radius of the selected tool to operate.  
+ * @author: Celeste G. Guagliano
+ * @version: 13/01/15
+ * 
+ */ 
 public class compensacionContorno {
 	
 	public static EcuacionRecta calcularEcuacionRecta(datos datosLinea, double herramienta) {

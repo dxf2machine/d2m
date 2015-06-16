@@ -17,6 +17,15 @@ package cggDatos;
 
 import cggGCode.GCode;
 
+/**
+ * This class defines the structure of datos.
+ * datos is a data structure that store the basic data of any entity.
+ * @author: Celeste G. Guagliano
+ * @version: 13/01/15
+ * 
+ */ 
+
+
 public class datos {
 
 	public double ComienzoX;

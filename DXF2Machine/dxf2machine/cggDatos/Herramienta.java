@@ -12,7 +12,13 @@ You should have received a copy of the GNU General Public License along with DXF
 
 
 package cggDatos;
-
+/**
+ * This class defines the structure of Herramienta.
+ * Herramienta is a data structure that stores the parameters of a given tool.
+ * @author: Celeste G. Guagliano
+ * @version: 13/01/15
+ * 
+ */ 
 public class Herramienta {
 	public double Diametro = 0;
 	public double Avance = 0;

@@ -21,8 +21,14 @@ import javax.swing.JTextArea;
 import cggColeccion.ColeccionFunciones;
 import cggDatos.DatosCirculo;
 import cggDatos.datos;
-import cggGCode.EnsambladoGCode;
 import cggGCode.GCode;
+
+/**
+ * This class access the general table of entities of DXF2Machine and collect the entities matching a color code in a new table.
+ * @author: Celeste G. Guagliano
+ * @version: 13/01/15
+ * 
+ */ 
 
 public class TablaAgujeros {
 	public static Hashtable ListaAgujeros = new Hashtable();

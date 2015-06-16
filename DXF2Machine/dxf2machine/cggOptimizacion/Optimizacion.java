@@ -16,6 +16,14 @@ import java.util.Hashtable;
 
 import cggColeccion.ColeccionFunciones;
 
+/**
+ * This class implements an algorithm of optimization for lists.
+ * This kind of optimization just returns the same list that receives.  
+ * @author: Celeste G. Guagliano
+ * @version: 13/01/15
+ * 
+ */ 
+
 public class Optimizacion {
 
 	public static Hashtable Optimizacion(Hashtable lista) {

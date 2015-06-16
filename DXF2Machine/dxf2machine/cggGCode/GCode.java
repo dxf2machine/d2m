@@ -38,6 +38,12 @@ import cggTablas.TablaContorno;
 import cggTablas.TablaGrabado;
 import cggTablas.TablaTocho;
 import myDXF.DXF_Loader;
+/**
+ * This class implements the necessary algorithms to translate all the collected data into G-Code  
+ * @author: Celeste G. Guagliano
+ * @version: 13/01/15
+ * 
+ */ 
 
 public class GCode {
     public static String nombreArchivo;

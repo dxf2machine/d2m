@@ -21,6 +21,14 @@ import javax.swing.JTable;
 
 import cggDatos.Herramienta;
 
+/**
+ * This class generate a table of tools.
+ * @author: Celeste G. Guagliano
+ * @version: 13/01/15
+ * 
+ */ 
+
+
 public class TablaHerramientas {
 	static Hashtable TablaHerramientas = new Hashtable();
 

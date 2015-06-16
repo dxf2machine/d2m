@@ -17,6 +17,12 @@ import java.text.DecimalFormatSymbols;
 
 import javax.swing.JOptionPane;
 
+/**
+ * This class defines the number's format.
+ * @author: Celeste G. Guagliano
+ * @version: 13/01/15
+ * 
+ */ 
 public class FormatoNumeros {
 	
 	

@@ -21,6 +21,13 @@ import cggDatos.Coordenadas;
 import cggDatos.Herramienta;
 import cggDatos.datos;
 
+/**
+ * This class implements the necessary algorithms to generate the G-Code from any list of entities.  
+ * @author: Celeste G. Guagliano
+ * @version: 13/01/15
+ * 
+ */ 
+
 public class GCodeMetodoGeneral extends GCode {
 	String nume=null;
 	double profundidad=0;

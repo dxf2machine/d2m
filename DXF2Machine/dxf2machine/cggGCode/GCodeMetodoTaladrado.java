@@ -21,6 +21,13 @@ import cggDatos.Coordenadas;
 import cggDatos.Herramienta;
 import cggDatos.datos;
 
+/**
+ * This class implements the necessary algorithms to generate the G-Code from a list of holes.  
+ * @author: Celeste G. Guagliano
+ * @version: 13/01/15
+ * 
+ */ 
+
 public class GCodeMetodoTaladrado extends GCode {
 	
 	private static void inicializarTaladradoDirecto(Coordenadas centro,

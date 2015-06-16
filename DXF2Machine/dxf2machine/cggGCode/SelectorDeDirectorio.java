@@ -19,6 +19,13 @@ import java.awt.*;
 import java.io.File;
 import java.util.*;
 
+/**
+ * This class implements a directory chooser to save files  
+ * @author: Celeste G. Guagliano
+ * @version: 13/01/15
+ * 
+ */ 
+
 public class SelectorDeDirectorio extends JPanel implements ActionListener {
 	JButton go;
 

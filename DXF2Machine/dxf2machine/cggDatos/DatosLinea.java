@@ -18,6 +18,14 @@ import cggColeccion.ColeccionFunciones;
 import cggGCode.GCode;
 import cggGCode.compensacionContorno;
 
+/**
+ * This class defines the structure of DatosLinea
+ * DatosLinea is a data structure that stores the parameters needed to generate a line.
+ * @author: Celeste G. Guagliano
+ * @version: 13/01/15
+ * 
+ */ 
+
 public class DatosLinea extends datos {
 
 	public DatosLinea(double d, double e, double f, double g, int _color,

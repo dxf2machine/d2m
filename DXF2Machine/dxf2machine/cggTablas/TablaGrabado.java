@@ -22,6 +22,13 @@ import cggColeccion.ColeccionFunciones;
 import cggDatos.datos;
 import cggGCode.GCode;
 
+/**
+ * This class access the general table of entities of DXF2Machine and collect the entities matching a color code in a new table.
+ * @author: Celeste G. Guagliano
+ * @version: 13/01/15
+ * 
+ */ 
+
 public class TablaGrabado {
 	public static Hashtable ListaGrabado = new Hashtable();
 	public static int colorGrabado = 4;

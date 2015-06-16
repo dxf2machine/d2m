@@ -19,6 +19,14 @@ import cggGCode.GCode;
 import cggGCode.compensacionContorno;
 import cggTablas.Tabla;
 
+/**
+ * This class defines the structure of DatosCirculo.
+ * DatosCirculo is a data structure that stores the parameters needed to generate a Circle.
+ * @author: Celeste G. Guagliano
+ * @version: 13/01/15
+ * 
+ */ 
+
 public class DatosCirculo extends datos {
 
 	public double CentroX, CentroY, Radio;

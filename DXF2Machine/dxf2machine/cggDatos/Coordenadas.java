@@ -12,6 +12,14 @@ You should have received a copy of the GNU General Public License along with DXF
 
 package cggDatos;
 
+/**
+ * This class defines structure of Coordenadas.
+ * Coordenadas is a data structure that stores a pair of coordinates.
+ * @author: Celeste G. Guagliano
+ * @version: 13/01/15
+ * 
+ */ 
+
 public class Coordenadas {
 	public double x = 0;
 	public double y = 0;

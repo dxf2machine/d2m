@@ -20,7 +20,12 @@ import cggColeccion.ColeccionFunciones;
 import cggDatos.Coordenadas;
 import cggDatos.Herramienta;
 import cggDatos.datos;
-
+/**
+ * This class implements the necessary algorithms to generate the G-Code from contours.  
+ * @author: Celeste G. Guagliano
+ * @version: 13/01/15
+ * 
+ */ 
 public class GCodeMetodoContorneado extends GCode {
 /*
  * Esta clase hará la optimización del tipo de mecanizado contorneado

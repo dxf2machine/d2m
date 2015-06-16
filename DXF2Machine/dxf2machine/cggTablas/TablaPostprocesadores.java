@@ -16,6 +16,12 @@ import java.util.Hashtable;
 
 import cggGCode.GCode;
 
+/**
+ * This class generate a table of admitted postprocessors.
+ * @author: Celeste G. Guagliano
+ * @version: 13/01/15
+ * 
+ */ 
 public class TablaPostprocesadores {
 
 	public static Hashtable ObtenerTabla() {

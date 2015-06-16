@@ -24,6 +24,13 @@ import cggDatos.EcuacionRecta;
 import cggDatos.datos;
 import cggGCode.compensacionContorno;
 
+/**
+ * This class implements an algorithm of optimization for lists.
+ * This kind of optimization receives a list, sort the items in a new list, check if they form a closed loop, calculates the offset entities and returns the optimized list. 
+ * @author: Celeste G. Guagliano
+ * @version: 13/01/15
+ * 
+ */ 
 public class OptimizacionMetodo2 extends Optimizacion {
 
 	public static Hashtable Optimizacion(Hashtable lista,double RadioHerramienta) {

@@ -11,6 +11,7 @@ You should have received a copy of the GNU General Public License along with DXF
   --------------------------------------------------------------------------------------------*/
 
 package cggColeccion;
+
 /*
  * Este paquete contiene funciones utiles para utilizar con colecciones.
  * Particularmente contiene las funciones de ordenamiento y comparación necesarias para ordenar
@@ -31,9 +32,22 @@ import cggDatos.Herramienta;
 import cggDatos.datos;
 import myDXF.DXF_Loader;
 
+/**
+ * This class defines util methods for colections.
+ * @author: Celeste G. Guagliano
+ * @version: 13/01/15
+ * 
+ */ 
+
+
 public class ColeccionFunciones {
 
-
+	/** Method to select a sub-group of elements from a list. 
+	 * @param listaEntidades is an entities hashtable.
+	 * @param condicion is the selection criteria. 
+	 * @return a list of entities. 
+	 */
+	
 	public static Hashtable ObtenerSubconjunto(HashSet listaEntidades,
 			int condicion) {
 		Hashtable aux = new Hashtable();
@@ -47,8 +61,12 @@ public class ColeccionFunciones {
 		return aux;
 	}
 
+	/** Method to get the initial coordinate of the first element in a list. 
+	 * @param lista is an ordered entities hashtable. 
+	 * @return the value of the initial coordinate of the first element of the list. 
+	 */
+	
 	public static Coordenadas ObtenerCoordenadaInicial(Hashtable lista) {
-		// TODO Este método recibe una lista ordenada de entidades y devuelve la coordenada inicial del primer elemento.
 		datos inicial = (datos) lista.get(0);
 		double x1 = 0, y1 = 0;
 		Coordenadas coordInicial = new Coordenadas(0, 0);
@@ -60,18 +78,27 @@ public class ColeccionFunciones {
 
 		return coordInicial;
 	}
-
-	public static int ObtenerElementoInicial(Hashtable listaContorno) {
-		// TODO Este método recibe una lista de entidades y obtiene el elemento inicial de la misma siguiendo una serie de criterios de selección.
+	
+	/** Method to initialize an ordered list 
+	 * @param lista is an ordered entities hashtable. 
+	 * @return the key of the first ordered element. 
+  	 */
+	public static int ObtenerElementoInicial(Hashtable lista) {
 		Hashtable iniciales = new Hashtable();
 		int llave = 0;
 		Coordenadas comparativa = new Coordenadas(0, 0);
-		comparativa = ObtenerCoordenadaMinima(listaContorno);
-		iniciales = MinimaDistancia(listaContorno, comparativa);
-		llave = SeleccionarUnInicial(iniciales, comparativa, listaContorno);
+		comparativa = ObtenerCoordenadaMinima(lista);
+		iniciales = MinimaDistancia(lista, comparativa);
+		llave = SeleccionarUnInicial(iniciales, comparativa, lista);
 		return llave;
 	}
-
+	
+	/** Method to decide between two possible first elements of an ordered list. 
+	 * @param iniciales is an ordered entities hashtable.
+	 * @param comparativa it's the criteria for decision
+	 * @param lista it's an ordered list of entities.
+	 * @return the key of the selected element. 
+	 */
 	private static int SeleccionarUnInicial(Hashtable iniciales,
 			Coordenadas comparativa, Hashtable lista) {
 		// TODO Teniendo una lista de posibles entidades iniciales, este metodo aplica un criterio de selección para decidir cual es el inicial que se utiliza. 
@@ -124,6 +151,13 @@ public class ColeccionFunciones {
 		return clave;
 	}
 
+	/**
+	 *  Method to define the orientation of an entity analyzing it's coordinates in the context of the list. 
+	 * @param elemento it's an entity.
+	 * @param comparativa it's the evaluation criteria. 
+	 * @return an oriented element. 
+	 */
+	
 	private static datos ComprobarOrdenCoordenada(datos elemento,
 			Coordenadas comparativa) {
 		//TODO Este método decide si la entidad en cuestión se encuentra orientada en forma directa o inversa
@@ -143,7 +177,11 @@ public class ColeccionFunciones {
 		}
 		return elemento;
 	}
-
+	
+	/** Method to compare coordinates and get the matched pair. 
+	 * @param iniciales it's a list of two entities.
+	 * @return the matched coordinate. 
+	 */
 	private static Coordenadas ObtenerCoincidente(Hashtable iniciales) {
 		//TODO Este método compara las coordenas de dos entidades y obtiene un par coincidente.
 		Coordenadas coincidentes = new Coordenadas(0, 0);
@@ -175,23 +213,28 @@ public class ColeccionFunciones {
 		return coincidentes;
 	}
 
-	private static Hashtable MinimaDistancia(Hashtable listaContorno,
+	/** Method to calculate the minimun distance between the elements of a list and a pair of comparative coordinates. 
+	 * @param lista a list of entities.
+	 * @param comparativa the comparative coordinates.
+	 * @return a list of maximum two entities that meet the criteria. 
+	 */
+	private static Hashtable MinimaDistancia(Hashtable lista,
 			Coordenadas comparativa) {
 		//TODO Este método recibe una lista de entidades y calcula cual es la entidad que posee un par de coordenadas de distancia minima a un punto de referencia dado.
 		Hashtable elementosIniciales = new Hashtable();
 		datos inicial1 = null;
-		for (Enumeration e = listaContorno.keys(); e.hasMoreElements();) {
+		for (Enumeration e = lista.keys(); e.hasMoreElements();) {
 			int clave = (int) e.nextElement();
-			inicial1 = (datos) listaContorno.get(clave);
+			inicial1 = (datos) lista.get(clave);
 		}
 		double distancia1 = CalcularDistanciaAReferencia(comparativa, inicial1);
 		int clave = 0;
 		int clave2 = 0;
 		datos inicial2 = null;
 		double distancia2 = 0;
-		for (Enumeration e = listaContorno.keys(); e.hasMoreElements();) {
+		for (Enumeration e = lista.keys(); e.hasMoreElements();) {
 			int key = (int) e.nextElement();
-			datos pinicial = (datos) listaContorno.get(key);
+			datos pinicial = (datos) lista.get(key);
 			double distancia = CalcularDistanciaAReferencia(comparativa,
 					pinicial);
 			if (distancia < distancia1) {
@@ -212,7 +255,12 @@ public class ColeccionFunciones {
 
 	}
 
-	private static boolean compararEntidades(datos inicial1, datos inicial2) {
+	/** Method to compare coordinates of entities 
+	 * @param inicial1 it's the data of an entity.
+	 * @param inicial2 it's the data of an entity.
+	 * @return true if there's a coincidence, false otherwise. 
+	 */
+		private static boolean compararEntidades(datos inicial1, datos inicial2) {
 		//TODO Este metodo compara entidades para saber si comparten un punto, es decir un par de coordenadas.
 		//mal puesto el nombre, debería ser "compararCoordenadasEntidades" o algo similar.
 		double x1 = inicial1.ComienzoX;
@@ -245,7 +293,12 @@ public class ColeccionFunciones {
 		}
 	}
 
-	private static double CalcularDistanciaAReferencia(Coordenadas comparativa,
+		/** Method to calculate the distance between a couple of pair coordinates. 
+		 * @param comparativa it's the reference pair coordinate.
+		 * @param inicial1 it's the element whose coordinates are analyzed 
+		 * @return the calculated distance.
+		 */
+		private static double CalcularDistanciaAReferencia(Coordenadas comparativa,
 			datos inicial1) {
 		//TODO Este método calcula la distancia entre un par de coordenadas y un punto de referencia, 
 		//compara el valor obtenido calculando con la coordenada inicial y final de la entidad y devuelve el menor.
@@ -265,13 +318,17 @@ public class ColeccionFunciones {
 
 	}
 
-	private static Coordenadas ObtenerCoordenadaMinima(Hashtable listaContorno) {
+		/** Method to get the minimum value of the x and y coordinates regardless of whether these values are from the same entity or not 
+		 * @param lista it's a list of entities.
+		 * @return the minimun coordinates. 
+		 */
+		private static Coordenadas ObtenerCoordenadaMinima(Hashtable lista) {
 		//TODO recibe una lista y busca entre las coordenadas de sus entidades el menor valor de X y de Y, le resta un valor de seguridad y devuelve este par de coordenadas.
 		Coordenadas minimas = new Coordenadas(0, 0);
-		minimas = InicializarCoordenadas(listaContorno);
+		minimas = InicializarCoordenadas(lista);
 		double x = minimas.x;
 		double y = minimas.y;
-		for (Enumeration e = listaContorno.elements(); e.hasMoreElements();) {
+		for (Enumeration e = lista.elements(); e.hasMoreElements();) {
 			datos elemento = (datos) e.nextElement();
 			double nuevoX = elemento.ComienzoX;
 			double nuevoY = elemento.ComienzoY;
@@ -287,17 +344,27 @@ public class ColeccionFunciones {
 		return minimas;
 	}
 
-	private static Coordenadas InicializarCoordenadas(Hashtable listaContorno) {
+		/** Method to get a random pair of coordinates from a list   
+		 * @param lista it's a list of entities.
+		 * @return a random pair of coordinates. 
+		 */
+			
+	private static Coordenadas InicializarCoordenadas(Hashtable lista) {
 		//TODO Este metodo toma un elemento cualquiera de una tabla y devuelve sus coordenadas iniciales.
 		datos elemento = new datos(0, 0, 0, 0, 0, false, 0, 0);
 		Coordenadas iniciales = new Coordenadas(0, 0);
-		for (Enumeration e = listaContorno.elements(); e.hasMoreElements();) {
+		for (Enumeration e = lista.elements(); e.hasMoreElements();) {
 			elemento = (datos) e.nextElement();
 		}
 		iniciales = new Coordenadas(elemento.ComienzoX, elemento.ComienzoY);
 		return iniciales;
 	}
 
+	/** Method to compare two numbers. 
+	 * @param valor it's a number.
+	 * @param nuevoValor it's a number.
+	 * @return the minimun number. 
+	 */
 	private static double ChequearCoordenada(double valor, double nuevoValor) {
 		//TODO compara el valor de dos coordenadas y devuelve el menor.
 		if (nuevoValor < valor) {
@@ -307,14 +374,24 @@ public class ColeccionFunciones {
 		}
 	}
 
+	/** Method for generating an ordered list. 
+	 * @param ordenados it's a list of ordered entities.
+	 * @param lista it's a list of entities to be ordered.
+	 * @return an ordered list.
+	 */
 	public static Hashtable ObtenerElementosOrdenados(Hashtable ordenados,
-			Hashtable listaContorno) {
+			Hashtable lista) {
 		//TODO Toma las entidades de una tabla, las ordena y las coloca en una tabla siguiendo el orden.
 		//Devuelve la tabla ordenada.
-		ordenados = ObtenerSiguienteElemento(ordenados, listaContorno);
+		ordenados = ObtenerSiguienteElemento(ordenados, lista);
 		return ordenados;
 	}
 
+	/** Method to get the next element for an ordered list fulfilling certain criteria
+	 * @param ordenados it's a list of ordered entities.
+	 * @param lista it's a list of entities to be ordered.
+	 * @return an ordered list.
+	 */
 	private static Hashtable ObtenerSiguienteElemento(Hashtable ordenados,
 			Hashtable listaContorno) {
 		//TODO Este método toma el último valor de la tabla de elementos ordenados, busca el siguiente en la tabla no ordenada según el criterio de ordenamiento
@@ -347,6 +424,10 @@ public class ColeccionFunciones {
 		return ordenados;
 	}
 
+	/** Method to get a random element of a list.
+	 * @param lista it's a list of entities 
+	 * @return an element.
+	 */
 	private static datos ObtenerElementoAleatorio(Hashtable listaContorno) {
 		//TODO devuelve un elemento al azar de la lista recibida.
 		int llave = 0;
@@ -355,13 +436,18 @@ public class ColeccionFunciones {
 		return elemento;
 	}
 
+	/** Method to compare if the final coordinate of the last item in an ordered list matches with the final coordinate of any other element of the orginal list.
+	 * @param ordenados it's a list of ordered entities.
+	 * @param lista it's a list of entities to be ordered.
+	 * @return an element.
+	 */
 	private static datos ComprobarCoordenadaFinal(Hashtable ordenados,
-			Hashtable listaContorno) {
+			Hashtable lista) {
 		//TODO chequea si la coordenada final del ultimo elemento de una lista ordenada coincide con la coordenada final de algun otro elemento de la lista original.
 		datos elemento = null;
 		boolean elementoEncontrado = false;
 		Coordenadas FinalUltimoElementoOrdenado = ObtenerCoordenadaFinal(ordenados);
-		for (Enumeration e = listaContorno.elements(); e.hasMoreElements();) {
+		for (Enumeration e = lista.elements(); e.hasMoreElements();) {
 			datos siguiente = (datos) e.nextElement();
 			Coordenadas SiguienteElemento = new Coordenadas(siguiente.FinalX,
 					siguiente.FinalY);
@@ -375,6 +461,11 @@ public class ColeccionFunciones {
 		return elemento;
 	}
 
+	/** Method to compare a couple of pair coordinates.
+	 * @param dato1 a pair coordinates.
+	 * @param dato2 a pair coordinates
+	 * @return true if the coordinates match, false otherwise.
+	 */
 	private static boolean CompararCoordenadas(Coordenadas dato1,
 			Coordenadas dato2) {
 	//TODO comprueba si un par de coordenadas coinciden, si es así devuelve true, caso contrario devuelve false.
@@ -385,6 +476,11 @@ public class ColeccionFunciones {
 		return coincidencia;
 	}
 
+	/** Method to compare if the final coordinate of the last item in an ordered list matches with the initial coordinate of any other element of the orginal list.
+	 * @param ordenados it's a list of ordered entities.
+	 * @param lista it's a list of entities to be ordered.
+	 * @return an element.
+	 */
 	private static datos ComprobarCoordenadaInicial(Hashtable ordenados,
 			Hashtable listaContorno) {
 		//TODO Chequea si la coordenada final del ultimo elemento de la tabla ordenada coincide con la coordenada inicial de algun elemento de la tabla original.
@@ -408,8 +504,11 @@ public class ColeccionFunciones {
 	}
 
 	
-
-	public static boolean EvaluarContornoCerrado(Hashtable listaContornoOrdenada) {
+	/** Method to determine whether a list of elements form a closed contour.
+	 * @param listaContornoOrdenada it's a list of ordered entities.
+	 * @return true if the contour is closed, false otherwise.
+	 */
+	 public static boolean EvaluarContornoCerrado(Hashtable listaContornoOrdenada) {
 		// TODO Evalúa si hay continuidad entre los elementos de la tabla, es decir que todos los elementos se toquen entre si, incluyendo el ultimo con el primero.
 		Coordenadas iniciales = new Coordenadas(0, 0);
 		Coordenadas finales = new Coordenadas(0, 0);
@@ -435,6 +534,11 @@ public class ColeccionFunciones {
 		return comparteCoordenada;
 	}
 
+	 /** Method to orientate a closed contour.
+	  * @param listaOrdenada it's a list of ordered entities.
+	  * @return a list of orientated elements.
+	 */
+		 
 	public static Hashtable OrientarContornoCerrado(Hashtable listaOrdenada) {
 		//TODO revisa la orientación de los elementos ordenados en la tabla y la corrije si es necesario.
 		int clave = 1;
@@ -451,11 +555,16 @@ public class ColeccionFunciones {
 		return listaOrdenada;
 	}
 
-	private static datos OrientarElementoFinal(datos elemento1, datos elemento2) {
+/*	private static datos OrientarElementoFinal(datos elemento1, datos elemento2) {
 		// TODO Auto-generated method stub
 		return null;
-	}
+	}*/
 
+	/** Method to orientate an element using another element as a criterion.
+	 * @param elemento1 the element to be oriented
+	 * @param elemento2 the criteria of orientation.
+	 * @return an oriented element.
+	 */
 	private static datos OrientarElemento(datos elemento1, datos elemento2) {
 		//TODO Chequea cuales son las coordenadas que se tocan entre dos elementos y en base a esto orienta los mismos.
 		double x1 = 0, y1 = 0, x2 = 0, y2 = 0;
@@ -476,6 +585,12 @@ public class ColeccionFunciones {
 		return elemento2;
 	}
 
+
+	/** Method to orientate an element using another element as a criterion.
+	 * @param elemento1 the element to be oriented
+	 * @param elemento2 the criteria of orientation.
+	 * @return an oriented element.
+	 */
 	private static Coordenadas ObtenerCoordenadaFinal(
 			Hashtable listaContornoOrdenada) {
 		//TODO Devuelve la coordenada final de un elemento teniendo en cuenta su orientación.
