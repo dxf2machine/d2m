@@ -1,5 +1,5 @@
 # DXF2Machine
-This project stems from DXF project. DXF files can translate into machine code.
+This project is a fork from DXF project. DXF files can translate into machine code.
 
    Copyright 2014, Celeste Gabriela Guagliano. 
 
