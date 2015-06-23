@@ -652,17 +652,22 @@ public class DXF_Loader extends JPanel implements ActionListener {
 		treeBar.setBorder(BorderFactory.createEmptyBorder(0, 0, 0,0));
 		treeBar.add(definirMecanizado);
 		this.add(_mc);*/
-		JScrollPane main=new JScrollPane(Tabla.principal);
+/*		JScrollPane main=new JScrollPane(Tabla.principal);
 		tab2Pane.add("Código Principal",main);
+		GCode.plano.setForeground(Color.MAGENTA);
 		JScrollPane plan=new JScrollPane(GCode.plano);
 		tab2Pane.add("Código Planeado",plan);
+		GCode.contorneado.setForeground(Color.BLUE);
 		JScrollPane conto=new JScrollPane(GCode.contorneado);
 		tab2Pane.add("Código Contorneado",conto);
+		GCode.grabado.setForeground(Color.CYAN);
 		JScrollPane grab=new JScrollPane(GCode.grabado);
 		tab2Pane.add("Código Grabado",grab);
+		GCode.taladro.setForeground(Color.GREEN);
 		JScrollPane tal=new JScrollPane(GCode.taladro);
-		tab2Pane.add("Código Taladrado",tal);
-		
+		tab2Pane.add("Código Taladrado",tal);*/
+		JScrollPane mos=new JScrollPane(Tabla.consola);
+		tab2Pane.add("Consola",mos);
         globalPanel.add(tab2Pane);
 		this.tree._refCanva = _mc;
 		this.treeMenu = new myJMenu(_mc);

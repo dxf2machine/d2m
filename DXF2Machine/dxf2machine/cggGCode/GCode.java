@@ -12,6 +12,7 @@ You should have received a copy of the GNU General Public License along with DXF
 
 package cggGCode;
 
+import java.awt.Color;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -19,9 +20,11 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Hashtable;
 import java.util.ResourceBundle;
+import java.util.StringTokenizer;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
+import javax.swing.JTextPane;
 
 import cggColeccion.*;
 import cggDatos.Coordenadas;
@@ -314,7 +317,7 @@ public class GCode {
 		return principal;
 	}
 
-	public static void archivarMecanizado(JTextArea mecanizado) {
+	public static void archivarMecanizado(JTextArea mecanizado, JTextPane consola) {
 		
 		//nroLineaPrincipal = mecanizado.getLineCount() + numeracionReferencia;
 		//String nume = incrementarLinea(++nroLineaPrincipal);
@@ -453,4 +456,22 @@ public class GCode {
 		return linea;
 	}
 
-}
+	public static void formatearConsola(JTextArea principal,JTextPane consola) {
+		consola.setContentType("text/html");
+		String allText = principal.getText() ;
+		String formateado="";
+		StringTokenizer st = new StringTokenizer(allText,"\r\n") ;
+		while (st.hasMoreTokens()) {
+		     String line = st.nextToken();
+		     formateado= formateado+"<font color=\"red\">"+line+"</font><br>";
+		 	}
+		consola.setText(formateado);
+		
+        
+       //consola.add(contorneado);
+       //consola.add(grabado);
+		}
+		// TODO Auto-generated method stub
+		
+	}
+

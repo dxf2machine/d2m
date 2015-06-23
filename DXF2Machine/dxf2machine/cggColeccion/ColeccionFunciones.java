@@ -12,11 +12,7 @@ You should have received a copy of the GNU General Public License along with DXF
 
 package cggColeccion;
 
-/*
- * Este paquete contiene funciones utiles para utilizar con colecciones.
- * Particularmente contiene las funciones de ordenamiento y comparación necesarias para ordenar
- * las listas que se utilizan en DXF2Machine.
- */
+
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Enumeration;
@@ -608,6 +604,10 @@ public class ColeccionFunciones {
 		return coordFinales;
 	}
 
+	/** Method to select the entity in the original list that meets the criteria to initialize the ordered list. 
+	 * @param datos is an entities list.
+	 * @return a list of ordered entities. 
+	 */
 	public static Hashtable InicializarTablaOrdenada(Hashtable datos) {
 		//TODO coloca el elemento inicial en la tabla ordenada.
 		Hashtable ordenada = new Hashtable();
@@ -617,6 +617,11 @@ public class ColeccionFunciones {
 		return ordenada;
 	}
 
+	/** Method to check if two entities share any pair of coordinates. 
+	 * @param elemento1 is an entity.
+	 * @param elemento2 is an entity.
+	 * @return true if any coordinates match, false otherwise. 
+	 */
 	public static boolean compartenCoordenada(datos elemento1, datos elemento2) {
 		//TODO chequea si dos elementos comparten coordenadas.		
 		boolean comparten = false;
@@ -641,6 +646,11 @@ public class ColeccionFunciones {
 		return comparten;
 	}
 
+	/** Method to remove unneeded elements of a list. 
+	 * @param lista is the original list
+	 * @param listaOptimizada is the resultant list.
+	 * @return a new list.
+	 */
 	public static Hashtable ObtenerNuevaLista(Hashtable lista,
 			Hashtable listaOptimizada) {
 		//TODO elimina de la tabla original los elementos que ya fueron incluidos en la tabla ordenada.

@@ -17,8 +17,10 @@ import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.Hashtable;
 
+import javax.swing.JEditorPane;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
+import javax.swing.JTextPane;
 
 import cggColeccion.ColeccionFunciones;
 import cggDatos.DatosCirculo;
@@ -42,7 +44,7 @@ public class Tabla {
 
 	public static HashSet ListaEntidades = new HashSet();
 	public static JTextArea principal = new JTextArea();
-
+	public static JTextPane consola=new JTextPane();
 	public static void AccederALaLista() {
 
 		for (int i = 0; i < myCanvas._dxf._u._myTables.size(); i++) {
@@ -64,6 +66,7 @@ public class Tabla {
 	public static void resetearTabla() {
 		ListaEntidades.clear();
 		principal.setText("");
+		
 	}
 
 	public static void agregarDatoATabla(datos entidad) {
@@ -104,6 +107,7 @@ public class Tabla {
 		 */
 		GCode.prepararPostprocesador(postProce, ruta);
 		principal = GCode.EncabezarPrograma(principal);
+		String texto=principal.getText();
 		if (DXF_Loader.plano == true) {
 			if (ListaContorno.size() != 0) {
 				ListaPlaneado = ColeccionFunciones.ObtenerTocho(ListaContorno,
@@ -118,6 +122,7 @@ public class Tabla {
 				GCode mecanizarRasgo= new GCodeMetodoContorneado();
 				principal = mecanizarRasgo.GenerarContorneado(mecanizarRasgo,ListaContorno,
 						herramientas, profConto, principal);
+				
 			}
 		}
 		if (DXF_Loader.grabo == true) {
@@ -135,7 +140,8 @@ public class Tabla {
 
 			}
 		}
-		GCode.archivarMecanizado(principal);
+		GCode.archivarMecanizado(principal,consola);
+		GCode.formatearConsola(principal,consola);
 	}else{
 		 JOptionPane.showMessageDialog(null, "Debe seleccionar un punto de origen de pieza único", "Error", JOptionPane.ERROR_MESSAGE);
 	}
