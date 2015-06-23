@@ -459,13 +459,50 @@ public class GCode {
 	public static void formatearConsola(JTextArea principal,JTextPane consola) {
 		consola.setContentType("text/html");
 		String allText = principal.getText() ;
-		String formateado="";
+		String formateo="";
 		StringTokenizer st = new StringTokenizer(allText,"\r\n") ;
+		formateo= formateo+"<font color=\"black\">(CODIGO DEL PROGRAMA PRINCIPAL)</font><br>";
 		while (st.hasMoreTokens()) {
 		     String line = st.nextToken();
-		     formateado= formateado+"<font color=\"red\">"+line+"</font><br>";
+		     formateo= formateo+"<font color=\"black\">"+line+"</font><br>";
 		 	}
-		consola.setText(formateado);
+		allText=plano.getText();
+		if(allText.isEmpty()!=true){
+		st = new StringTokenizer(allText,"\r\n") ;
+		formateo= formateo+"<font color=\"#87828B\">(CODIGO DE PLANEADO)</font><br>";
+		while (st.hasMoreTokens()) {
+		     String line = st.nextToken();
+		     formateo= formateo+"<font color=\"#87828B\">"+line+"</font><br>";
+		 	}
+		}
+		allText=contorneado.getText();
+		if(allText.isEmpty()!=true){
+		st = new StringTokenizer(allText,"\r\n") ;
+		 formateo= formateo+"<font color=\"blue\">(CODIGO DE CONTORNEADO)</font><br>";
+		while (st.hasMoreTokens()) {
+		     String line = st.nextToken();
+		     formateo= formateo+"<font color=\"blue\">"+line+"</font><br>";
+		 	}
+		}
+		allText=grabado.getText();
+		if(allText.isEmpty()!=true){
+		st = new StringTokenizer(allText,"\r\n") ;
+		formateo= formateo+"<font color=\"#0CB7F2\">(CODIGO DE GRABADO)</font><br>";
+		while (st.hasMoreTokens()) {
+		     String line = st.nextToken();
+		     formateo= formateo+"<font color=\"#0CB7F2\">"+line+"</font><br>";
+		 	}
+		}
+		allText=taladro.getText();
+		if(allText.isEmpty()!=true){
+		st = new StringTokenizer(allText,"\r\n") ;
+		formateo= formateo+"<font color=\"#00ff00\">(CODIGO DE TALADRADO)</font><br>";
+		while (st.hasMoreTokens()) {
+		     String line = st.nextToken();
+		     formateo= formateo+"<font color=\"#00ff00\">"+line+"</font><br>";
+		 	}
+		}
+		consola.setText(formateo);
 		
         
        //consola.add(contorneado);
