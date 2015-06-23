@@ -9,7 +9,7 @@ DXF2Machine is distributed in the hope that it will be useful, but WITHOUT ANY W
 
 You should have received a copy of the GNU General Public License along with DXF2Machine. If not, see <http://www.gnu.org/licenses/>.
   --------------------------------------------------------------------------------------------*/
-
+//Esto es una prueba de subida desde otra compu a git
 package cggColeccion;
 
 
