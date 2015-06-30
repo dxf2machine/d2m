@@ -87,11 +87,11 @@ public class compensacionContorno {
 				DatosCirculo dato=(DatosCirculo)datosCirculo;
 				ecuacion.centroX=dato.CentroX;
 				ecuacion.centroY=dato.CentroY;
-				if(dato.orientacion==0){
-					ecuacion.Radio=dato.Radio-radioHerramienta;
-				}else{
+				//if(dato.orientacion==0){
+				//	ecuacion.Radio=dato.Radio-radioHerramienta;
+				//}else{
 					ecuacion.Radio=dato.Radio+radioHerramienta;
-				}
+				//}
 			}else{
 				DatosArcos datos=(DatosArcos)datosCirculo;
 				ecuacion.centroX=datos.Xcentro;
@@ -138,6 +138,7 @@ public class compensacionContorno {
 		Hashtable listaCompensada=new Hashtable();
 		elemento1.ComienzoX=(double) FormatoNumeros.formatearNumero(elemento1.CentroX-ecuacion1.Radio);
 		elemento1.FinalX=(double) FormatoNumeros.formatearNumero(elemento1.CentroX+ecuacion1.Radio);
+		elemento1.Radio=(double) FormatoNumeros.formatearNumero(ecuacion1.Radio);
 		listaCompensada.put(i, elemento1);
 		return listaCompensada;
 	}

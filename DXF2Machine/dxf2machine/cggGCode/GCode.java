@@ -451,6 +451,7 @@ public class GCode {
 		linea1=linea1.replace("x", Double.toString(dato.x));
 		linea1=linea1.replace("y",Double.toString(dato.y));
 		linea1=linea1.replace("radio", Double.toString(elemento.Radio));
+		linea1=linea1.concat("\r\n");
 		linea2=linea2.replace("x", Double.toString(dato2.x));
 		linea2=linea2.replace("y", Double.toString(dato2.y));
 		linea2=linea2.replace("radio", Double.toString(elemento.Radio));

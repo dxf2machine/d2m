@@ -56,11 +56,11 @@ public class DatosCirculo extends datos {
 }
     public EcuacionEntidad compensaTuEcuacion(EcuacionEntidad ecuacion,double radioHerramienta, datos elemento) {
 		EcuacionCircunferencia compensada=(EcuacionCircunferencia)ecuacion;
-		if(elemento.orientacion==0){
-			compensada.Radio=compensada.Radio-radioHerramienta;
-		}else{
+	    //if(elemento.orientacion==0){
+		//	compensada.Radio=compensada.Radio-radioHerramienta;
+		//}else{
 			compensada.Radio=compensada.Radio+radioHerramienta;
-		}
+		//}
 		return compensada;
 	}
 
