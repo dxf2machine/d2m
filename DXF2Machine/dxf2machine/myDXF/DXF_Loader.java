@@ -197,7 +197,7 @@ public class DXF_Loader extends JPanel implements ActionListener {
 	public DXF_Loader() {
 		super();
  
-		this.frame = new JFrame("DXF2GCode");
+		this.frame = new JFrame("DXF2Machine");
 		this.frame.setIconImage(new ImageIcon(ClassLoader
 				.getSystemResource("images/dxf.jpg")).getImage());
 		this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

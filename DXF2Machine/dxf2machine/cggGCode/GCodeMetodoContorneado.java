@@ -18,6 +18,7 @@ import javax.swing.JTextArea;
 
 import cggColeccion.ColeccionFunciones;
 import cggDatos.Coordenadas;
+import cggDatos.FormatoNumeros;
 import cggDatos.Herramienta;
 import cggDatos.datos;
 /**
@@ -46,6 +47,7 @@ public class GCodeMetodoContorneado extends GCode {
 				for (int i = 1; i <= lista.size(); i++) {
 					datos elemento1 = (datos) lista.get(i);
 					String linea = elemento1.mecanizate();
+					tramo=(double) FormatoNumeros.formatearNumero(tramo);
 					linea= linea+rampaZ.replace("z",Double.toString(tramo));
 					rasgo.append(linea);
 					tramo-=incrementoTramo;

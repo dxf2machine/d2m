@@ -212,9 +212,11 @@ public class compensacionContorno {
 			Coordenadas interseccionArcoOriginal) {
 		Coordenadas interseccion=new Coordenadas(0,0);
 		interseccion.x=-ecuacion1.C/ecuacion1.A;
-		double parametro=Math.sqrt(ecuacion2.Radio*ecuacion2.Radio-Math.pow(interseccion.x-ecuacion2.centroX,2));
-		if(Math.abs(parametro)==0){
-			parametro=0;
+		System.out.println(ecuacion2.Radio+"*"+ecuacion2.Radio+"-Math.pow"+interseccion.x+"-"+ecuacion2.centroX);
+		double parametroAlCuadrado=(ecuacion2.Radio*ecuacion2.Radio-Math.pow(interseccion.x-ecuacion2.centroX,2));
+		double parametro=0;
+		if(Math.abs(parametroAlCuadrado)>0.0001){
+			parametro=Math.sqrt(parametroAlCuadrado);
 		}
 		double y1=ecuacion2.centroY+parametro;
 		double y2=ecuacion2.centroY-parametro;

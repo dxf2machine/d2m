@@ -49,6 +49,7 @@ import myDXF.DXF_Loader;
  */ 
 
 public class GCode {
+	public static String nombreA;
     public static String nombreArchivo;
     public static String encabezado;
     public static String cambioHerramienta;
@@ -271,7 +272,7 @@ public class GCode {
 	private static JTextArea chequearContenido(JTextArea rasgo) {
 		// TODO Auto-generated method stub
 		if(rasgo.getText()==null){
-			rasgo.setText("Lo siento, algunos de los elementos que desea mecanizar no son admitidos aún por DXF2GCode,"
+			rasgo.setText("Lo siento, algunos de los elementos que desea mecanizar no son admitidos aï¿½n por DXF2GCode,"
 					+ "Por favor, revise las entidades seleccionadas o modifique el archivo en su editor CAD para proseguir.");
 		}
 		return rasgo;
@@ -322,8 +323,15 @@ public class GCode {
 		//nroLineaPrincipal = mecanizado.getLineCount() + numeracionReferencia;
 		//String nume = incrementarLinea(++nroLineaPrincipal);
 		mecanizado.append(terminacion);
-		String nombre=nombreArchivo.replace("nombre", "100");
-		String ruta = new String(Ruta +nombre);
+		int numero=0;
+		File f;
+		String ruta;
+		do{
+		++numero;
+		nombreA=nombreArchivo.replace("nombre",Integer.toString(numero));
+		ruta = new String(Ruta +nombreA);
+		f = new File(ruta);
+		}while(f.exists());
 		try {
 			BufferedWriter out = new BufferedWriter(new FileWriter(ruta));
 			out.write(mecanizado.getText());
@@ -461,7 +469,8 @@ public class GCode {
 		String allText = principal.getText() ;
 		String formateo="";
 		StringTokenizer st = new StringTokenizer(allText,"\r\n") ;
-		formateo= formateo+"<font color=\"black\">(CODIGO DEL PROGRAMA PRINCIPAL)</font><br>";
+		formateo= formateo+"<font color=\"black\">(CODIGO DEL PROGRAMA PRINCIPAL</font><br>";
+		formateo= formateo+"<font color=\"black\">UBICACION: "+Ruta+nombreA+")</font><br>";
 		while (st.hasMoreTokens()) {
 		     String line = st.nextToken();
 		     formateo= formateo+"<font color=\"black\">"+line+"</font><br>";
