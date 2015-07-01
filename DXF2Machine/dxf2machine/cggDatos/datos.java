@@ -18,7 +18,7 @@ package cggDatos;
 import cggGCode.GCode;
 
 /**
- * This class defines the structure of datos.
+ * This class defines the structure of datos and it's methods.
  * datos is a data structure that store the basic data of any entity.
  * @author: Celeste G. Guagliano
  * @version: 13/01/15
@@ -51,38 +51,63 @@ public class datos {
 		this.orientacion = orientacion;
 	}
 
+	/** This method translate the entity into machine code.
+	 * @return a string.
+	 */
 	public String mecanizate() {
 		return null;
 		// TODO Auto-generated method stub
 
 	}
 
+	/** This method generates a jump between two non connected entities.
+	 * @return a string.
+	 */
 	public String saltarASiguiente() {
 		String linea = GCode.avanceRapido(this);
 		return linea;
 	}
 
+	/** This method translate an entity into drill code.
+	 * @return a string.
+	 */
 	public String taladrate() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	/** This method calculates the compensation of an entity
+	 * @return another entity.
+	 */
 	public datos compensate() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	/** This method calculates the equation that defines an entity.
+	 * @param radioHerramienta is the tool diameter
+	 * @return an equation.
+	 */
 	public EcuacionEntidad calculaTuEcuacion(double radioHerramienta) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	/** This method compensates a given equation.
+	 * @param ecuacion is an equation
+	 * @param radioHerramienta is the tool radius.
+	 * @param elemento is an entity.
+	 * @return an equation.
+	 */
 	public EcuacionEntidad compensaTuEcuacion(EcuacionEntidad ecuacion, double radioHerramienta, datos elemento) {
 		// TODO Auto-generated method stub
 	
 		return null;
 	}
 
+	/** This method replaces the end point of an entity.
+	 * @param interseccion 
+	 * @return an entity.
+	 */
 	public datos cambiarCoordenadaFinal(Coordenadas interseccion) {
 		if(this.orientacion==0){
 			this.FinalX=interseccion.x;
@@ -93,7 +118,10 @@ public class datos {
 		}
 		return this;
 	}
-
+	/** This method replaces the start point of an entity.
+	 * @param interseccion is a point.
+	 * @return an entity.
+	 */
 	public datos cambiarCoordenadaInicial(Coordenadas interseccion) {
 		if(this.orientacion==0){
 			this.ComienzoX=interseccion.x;
@@ -107,22 +135,39 @@ public class datos {
 		
 	}
 
+	/** This method calculates the offset of an equation
+	 * @param radioHerramienta is the tool radius.
+	 * @return an equation.
+	 */
 	public EcuacionEntidad calculaTuEcuacionDesplazada(double radioHerramienta) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	/** This method calculates the new start and end point of an entity with compensation.
+	 * @param radioHerramienta is the tool radius.
+	 * @return an entity.
+	 */
 	public datos calculaTusCoordenadasCompensadas(double radioHerramienta) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Coordenadas ObtenerPuntoSobreRectaCompensada(double herramienta,
+	/** This method calculates a point over an offset line
+	 * @param radioHerramienta is the tool radius.
+	 * @param original is an equation..
+	 * @return a point.
+	 */
+	public Coordenadas ObtenerPuntoSobreRectaCompensada(double radioHerramienta,
 			EcuacionRecta original) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	/** This method calculates the displacement of an entity 
+	 * @param centro is a point.
+	 * @return an entity.
+	 */
 	public datos desplazateAlCentro(DatosCirculo centro) {
 		// TODO Auto-generated method stub
 	return null;

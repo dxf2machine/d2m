@@ -38,22 +38,38 @@ public class DatosArcos extends datos {
 		// TODO Auto-generated constructor stub
 	}
 
+	/** This method translate the entity into machine code.
+	 * @return a string.
+	 */
 	public String mecanizate() {
 		// hace tu gracia.
 		String linea = GCode.avanceSegmentoCircular(this);
 		return linea;
 	}
 	
+	/** This method calculates the equation that defines an entity.
+	 * @param radioHerramienta is the tool radius.
+	 * @return an equation.
+	 */
 	public EcuacionCircunferencia calculaTuEcuacion(double radioHerramienta){
 		EcuacionCircunferencia circunferencia=compensacionContorno.calcularEcuacionCircunferencia(this,radioHerramienta);
 		return circunferencia;
 	}
 	
+	/** This method compensates a given equation.
+	 * @param ecuacion is an equation.
+	 * @param radioHerramienta is the tool radius.
+	 * @param elemento is an entity.
+	 * @return a equation.
+	 */
 	public EcuacionEntidad compensaTuEcuacion(EcuacionEntidad ecuacion,double radioHerramienta, datos elemento) {
 		EcuacionCircunferencia compensada=(EcuacionCircunferencia)ecuacion;
 		return ecuacion;
 	}
 
+	/** This method gets the start angle of an arc
+	 * @return an angle.
+	 */
 	public double obtenerAnguloInicial() {
 		double angulo=0;
 		if (this.orientacion==0){
@@ -64,6 +80,9 @@ public class DatosArcos extends datos {
 		return angulo;
 	}
 
+	/** This method gets the final angle of an arc
+	 * @return an angle.
+	 */
 	public double obtenerAnguloFinal() {
 		double angulo=0;
 		if (this.orientacion==0){
@@ -74,6 +93,10 @@ public class DatosArcos extends datos {
 		return angulo;
 	}
 	
+	/** This method calculates the displacement of an entity 
+	 * @param centro is a point.
+	 * @return an entity.
+	 */
 	public DatosArcos desplazateAlCentro(DatosCirculo centro) {
 		this.ComienzoX=(double) FormatoNumeros.formatearNumero(this.ComienzoX-centro.CentroX);
 		this.FinalX=(double) FormatoNumeros.formatearNumero(this.FinalX-centro.CentroX);

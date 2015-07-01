@@ -25,7 +25,10 @@ import javax.swing.JOptionPane;
  */ 
 public class FormatoNumeros {
 	
-	
+	/** This method sets the decimal format for a number. 
+	 * @param numero is a number.
+	 * @return a number.
+	 */
 	public static Object formatearNumero(double numero){
 		DecimalFormatSymbols simbolos = new DecimalFormatSymbols();
 		simbolos.setDecimalSeparator('.');

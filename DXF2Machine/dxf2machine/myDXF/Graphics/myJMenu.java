@@ -468,7 +468,7 @@ public class myJMenu extends JPopupMenu {
 					}
 				} else {
 					// TODO -> LOG ?
-					// System.err.println("[NOK] Opération inconnue");
+					// System.err.println("[NOK] Operation inconnue");
 				}
 				myCanvas._dxf.updateStats();
 			}

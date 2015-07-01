@@ -143,7 +143,7 @@ public class Tabla {
 		GCode.archivarMecanizado(principal,consola);
 		GCode.formatearConsola(principal,consola);
 	}else{
-		 JOptionPane.showMessageDialog(null, "Debe seleccionar un punto de origen de pieza único", "Error", JOptionPane.ERROR_MESSAGE);
+		 JOptionPane.showMessageDialog(null, "Debe seleccionar un punto de origen de pieza unico", "Error", JOptionPane.ERROR_MESSAGE);
 	}
 }
 

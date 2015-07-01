@@ -19,6 +19,6 @@
 
 
     This program uses files, and modified versions from DXF project 
-    Copyright 2007-2009, Marc Paris, Stephan Soulard and Edouard 
-    Vanhauwaert. In this same folder folder you can find the original
+    Copyright 2007-2009, Stephan Soulard and Edouard Vanhauwaert. 
+    In this same folder folder you can find the original
     complete text of the DXF License in DXF_License.txt file.

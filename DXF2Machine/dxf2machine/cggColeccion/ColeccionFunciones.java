@@ -663,7 +663,11 @@ public class ColeccionFunciones {
 		}
 		return lista;
 	}
-
+	/** This method calculates the trajectory needed to cover a surface with a tool of a certain diameter, based on the outline. 
+	 * @param listaContorno is the outline
+	 * @param herramientas is the list of tools where belongs the one involve into this operation.
+	 * @return a new list.
+	 */
 	public static Hashtable ObtenerTocho(Hashtable listaContorno,
 			Hashtable herramientas) {
 		// TODO Encuentra las coordenadas maximas y minimas del contorno, y teniendo en cuenta estas coordenadas y la herramienta a utilizar calcula la tabla de trayectoria del planeado
@@ -683,6 +687,10 @@ public class ColeccionFunciones {
 		return tocho;
 	}
 
+	/** This method checks if there is any circle in a list. 
+	 * @param listaContorno is the list
+	 * @return a circle if there's any in the list, null otherwise.
+	 */
 	private static DatosCirculo chequearElementos(Hashtable listaContorno) {
 		// TODO chequea si los elementos de la lista son circulos.
 		DatosCirculo elemento = null;
@@ -695,6 +703,12 @@ public class ColeccionFunciones {
 		return elemento;
 	}
 
+	/** This method calculates the trajectory needed to cover a surface between a start point and an end point, increasing 70% of the tool diameter from line to line. 
+	 * @param inicial is the beginning point
+	 * @param final is the finishing point.
+	 * @param diametro is the tool diameter.
+	 * @return a list.
+	 */
 	private static Hashtable GenerarTablaTocho(Coordenadas inicial,
 			Coordenadas finales, double diametro) {
 		//TODO genera la tabla de trayectorias del planeado
@@ -720,6 +734,14 @@ public class ColeccionFunciones {
 		return tocho;
 	}
 
+
+	/** This method calculates an horizontal line from an initial point with a certain distance and orientation.
+	 * @param arriba is the beginning point
+	 * @param diametro is the tool diameter.
+	 * @param inicial is a point.
+	 * @param finales is a point.
+	 * @return an entity.
+	 */
 	private static DatosLinea DesplazateHorizontal(DatosLinea arriba,
 			double diametro, Coordenadas inicial, Coordenadas finales) {
 		//TODO genera una linea horizontal
@@ -735,6 +757,11 @@ public class ColeccionFunciones {
 		return horizontal;
 	}
 
+	/** This method calculates a vertical line from an initial point with a certain distance and orientation.
+	 * @param anterior is the beginning point
+	 * @param diametro is the tool diameter.
+	 * @return an entity.
+	 */
 	private static DatosLinea DesplazateVertical(DatosLinea anterior,
 			double diametro) {
 		//TODO genera una linea vertical
@@ -746,6 +773,10 @@ public class ColeccionFunciones {
 		return arriba;
 	}
 
+	/** This method search for the maximum value of X and Y in the entities of a list.
+	 * @param listaContorno is an entities list 
+	 * @return a coordinate.
+	 */
 	private static Coordenadas ObtenerCoordenadaMaxima(Hashtable listaContorno) {
 		// TODO obtiene el maximo valor de X e Y entre las coordenadas de la lista recibida
 		Coordenadas maximas = new Coordenadas(0, 0);
@@ -768,6 +799,11 @@ public class ColeccionFunciones {
 		return maximas;
 	}
 
+	/** This method compares two numbers and decides wich one is the biggest.
+	 * @param x is a number.
+	 * @param nuevoX is a number.
+	 * @return a number.
+	 */
 	private static double ChequearCoordenadaMax(double x, double nuevoX) {
 		//TODO compara el par de dos coordenadas y devuelve el mayor
 		if (nuevoX > x) {
@@ -779,6 +815,10 @@ public class ColeccionFunciones {
 
 	}
 
+	/** This method checks the orientation of an entity and returns the final point.
+	 * @param inicial is the representation of an entity
+	 * @return a point.
+	 */
 	public static Coordenadas ObtenerCoordenadaFinEntidad(datos inicial) {
 		//TODO devuelve el valor de la coordenada final de una entidad teniendo en cuenta su orientacion
 		Coordenadas finales = new Coordenadas(0, 0);
@@ -791,7 +831,10 @@ public class ColeccionFunciones {
 					}
 		return finales;
 	}
-
+	/** This method checks the orientation of an entity and returns the beginning point.
+	 * @param inicial is the representation of an entity
+	 * @return a point.
+	 */
 	public static Coordenadas ObtenerCoordenadaInicioEntidad(datos inicial) {
 		//TODO devuelve el valor de la coordenada inicial de una entidad teniendo en cuenta su orientacion
 		Coordenadas iniciales = new Coordenadas(0, 0);
@@ -805,6 +848,10 @@ public class ColeccionFunciones {
 		return iniciales;
 	}
 
+	/** This method checks if an entity is a circle and returns it's center.
+	 * @param datos is the representation of an entity
+	 * @return a point.
+	 */
 	public static Coordenadas ObtenerCoordenadaCentroEntidad(datos datos) {
 		//TODO Obtiene la coordenada del centro de una entidad siempre que se trate de un circulo.
 		Coordenadas centro= new Coordenadas(0,0);
@@ -814,6 +861,10 @@ public class ColeccionFunciones {
 		return centro;
 	}
 
+	/** This method collect the circles of a list.
+	 * @param lista is a list of entities.
+	 * @return a list of circles.
+	 */
 	public static Hashtable ObtenerCirculos(Hashtable lista) {
 		// TODO extrae los circulos de una lista dada y los devuelve en otra lista.
 		Hashtable seleccion= new Hashtable();

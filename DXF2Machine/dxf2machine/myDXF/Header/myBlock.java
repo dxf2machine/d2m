@@ -72,7 +72,7 @@ public class myBlock extends myEntity {
 			} else if (ligne_temp.equalsIgnoreCase("20")) {
 				y = Double.parseDouble(ligne);
 			} else if (ligne_temp.equalsIgnoreCase("0")) {
-				// Ajout des éléments du block
+				// Ajout des elements du block
 				while ((obj = univers.addEntity(br, ligne, false)) != null) {
 					myEnt.add(obj);
 					ligne = br.readLine();

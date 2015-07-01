@@ -72,6 +72,11 @@ public class compensacionContorno {
 		return compensada;
 	}
 
+	/** Method to calculate the equation of parallel line to another given line. 
+	 * @param original is the given line.
+	 * @param punto is a point include in the parallel line.
+	 * @return a line equation.
+	 */
 		private static EcuacionRecta calcularRectaParalela(EcuacionRecta original,
 		Coordenadas punto) {
 	    EcuacionRecta compensada= new EcuacionRecta(original.A,original.B,0);
@@ -80,7 +85,11 @@ public class compensacionContorno {
 }
 
 		
-
+		/** Method to calculate the equation a circumference
+		 * @param datosCirculo is an entity.
+		 * @param radioHerramienta is the tool radius.
+		 * @return a circumference equation.
+		 */
 		public static EcuacionCircunferencia calcularEcuacionCircunferencia(datos datosCirculo, double radioHerramienta) {
 			EcuacionCircunferencia ecuacion=new EcuacionCircunferencia(0,0,0);
 			if(datosCirculo instanceof DatosCirculo){
@@ -105,6 +114,11 @@ public class compensacionContorno {
 		return ecuacion;
 	}
 
+		/** Method to calculate an intersection point between two equations.
+		 * @param listaOptimizada a list of entities.
+		 * @param listaEcuaciones a list of equations.
+		 * @return a list.
+		 */
 	public static Hashtable intersectarEcuacionesCompensadas(
 			Hashtable listaOptimizada, Hashtable listaEcuaciones) {
 		Hashtable listaCompensada=new Hashtable();

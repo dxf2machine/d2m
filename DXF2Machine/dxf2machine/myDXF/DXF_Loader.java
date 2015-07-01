@@ -58,7 +58,33 @@ import java.util.Vector;
 
 //import javafx.scene.control.ComboBox;
 
+/*
+public void actionPerformed(ActionEvent e) {
+	int sel=((JComboBox)e.getSource()).getSelectedIndex();
+	switch (sel) {
+		case 0 : res = ResourceBundle.getBundle("myDXF.i18n.Ressources_EN");
+				locale = new Locale("en", "US");
+			    Locale.setDefault(locale);
+			break;
+		case 1 : res = ResourceBundle.getBundle("myDXF.i18n.Ressources_FR");
+				locale = new Locale("fr", "FR");
+			    Locale.setDefault(locale);
+			break;
+		case 2 : res = ResourceBundle.getBundle("myDXF.i18n.Ressources_ES");
+				locale = new Locale("es", "ES");
+			    Locale.setDefault(locale);
+			break;
+		default : res = ResourceBundle.getBundle("myDXF.i18n.Ressources_EN");
+				locale = new Locale("en", "US");
+				Locale.setDefault(locale);
+			break;
+	}
+	doInternational();
+	
+}
+});
 
+*/
 
 
 
@@ -112,7 +138,7 @@ import myDXF.Header.myTable;
 
 public class DXF_Loader extends JPanel implements ActionListener {
 	public static ResourceBundle res = ResourceBundle
-			.getBundle("myDXF.i18n.Ressources_EN");
+			.getBundle("myDXF.i18n.Ressources_ES");
 
 	public static final long serialVersionUID = 1L;
 	public static JTabbedPane tabPane;
@@ -261,10 +287,10 @@ public class DXF_Loader extends JPanel implements ActionListener {
 		postproce = new JComboBox(postprocesadores);
 		postprocesador = (String) postproce.getSelectedItem();
 		postProcesado.add(postproce);
-		Checkbox planeado = new Checkbox("Planeado");
-		Checkbox contorneado = new Checkbox("Contorneado");
-		Checkbox grabado = new Checkbox("Grabado");
-		Checkbox taladrado = new Checkbox("Taladrado");
+		Checkbox planeado = new Checkbox(res.getString("Planeado"));//"Planeado");
+		Checkbox contorneado = new Checkbox(res.getString("Contorneado"));
+		Checkbox grabado = new Checkbox(res.getString("Grabado"));
+		Checkbox taladrado = new Checkbox(res.getString("Taladrado"));
 
 		TiposyProfu.add(planeado);
 		TiposyProfu.add(new JLabel("Prof Planeado:"));
@@ -384,7 +410,7 @@ public class DXF_Loader extends JPanel implements ActionListener {
 		String[] columnNames = { "Herramienta", "Planeado", "Contorneado",
 				"Grabado", "Taladrado" };
 		Object[][] data = {
-				{ "N°", (double) 1, (double) 2, (double) 3, (double) 4 },
+				{ "Nro", (double) 1, (double) 2, (double) 3, (double) 4 },
 				{ "Diametro", (double) 25, (double) 12, (double) 4, (double) 6 },
 				{ "Velocidad", (double) 1000, (double) 2000, (double) 2000,
 						(double) 2000 },
@@ -614,7 +640,7 @@ public class DXF_Loader extends JPanel implements ActionListener {
 		// DO NOT MOVE THIS LINE
 		_mc = new myCanvas(this);
 		this.tree = new myJTree(_mc);
-		// La survie du monde en dépend !
+		// La survie du monde en dï¿½pend !
 
 		//JPanel treeView = new JPanel();
 		//treeView.setLayout(null);

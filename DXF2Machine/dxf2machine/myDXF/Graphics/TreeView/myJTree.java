@@ -66,7 +66,7 @@ public class myJTree extends JTree implements Autoscroll {
 			public void mouseReleased(MouseEvent e) {
 				DefaultMutableTreeNode node = null;
 
-				// Précaution !!!
+				// Precaution !!!
 				if (myCanvas._dxf.treeMenu._mc == null) {
 					myCanvas._dxf.treeMenu._mc = _refCanva;
 				}
