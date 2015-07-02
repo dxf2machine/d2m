@@ -147,16 +147,29 @@ public class compensacionContorno {
 		return listaCompensada;
 	}
 
-	private static Hashtable compensarCircunferencia(int i,
+
+	/** Method to gets a compensated circumference.
+	 * @param key is the position in the hashtable.
+	 * @param ecuacion1 is the circumference equation.
+	 * @param elemento1 is the circumference to compensate.
+	 * @return a list.
+	 */
+	private static Hashtable compensarCircunferencia(int key,
 			EcuacionCircunferencia ecuacion1, DatosCirculo elemento1) {
 		Hashtable listaCompensada=new Hashtable();
 		elemento1.ComienzoX=(double) FormatoNumeros.formatearNumero(elemento1.CentroX-ecuacion1.Radio);
 		elemento1.FinalX=(double) FormatoNumeros.formatearNumero(elemento1.CentroX+ecuacion1.Radio);
 		elemento1.Radio=(double) FormatoNumeros.formatearNumero(ecuacion1.Radio);
-		listaCompensada.put(i, elemento1);
+		listaCompensada.put(key, elemento1);
 		return listaCompensada;
 	}
 
+
+	/** Method to calculate the intersection point between two lines.
+	 * @param ecuacion1 is the first line equation.
+	 * @param ecuacion2 is the second line equation.
+	 * @return a point.
+	 */
 	public static Coordenadas intersectarRectas(EcuacionRecta ecuacion1,
 			EcuacionRecta ecuacion2) {
 		Coordenadas interseccion=new Coordenadas(0,0);
@@ -177,6 +190,13 @@ public class compensacionContorno {
 		return interseccion;
 	}
 
+
+	/** Method to calculate the point of intersection between a line and a circumference.
+	 * @param ecuacion1 is the line's equation.
+	 * @param ecuacion2 is the circumference's equation.
+	 * @param elemento2 is the Arc's data.
+	 * @return a point.
+	 */
 	public static Coordenadas intersectarArcoYRecta(EcuacionRecta ecuacion1,
 			EcuacionCircunferencia ecuacion2, DatosArcos elemento2) {
 		Coordenadas interseccion=new Coordenadas(0,0);
@@ -191,6 +211,12 @@ public class compensacionContorno {
 		return interseccion;
 	}
 
+	/** Method to calculate the point of intersection between a line and a circumference.
+	 * @param ecuacion1 is the line's equation.
+	 * @param ecuacion2 is the circumference's equation.
+	 * @param elemento2 is the Arc's data.
+	 * @return a point.
+	 */
 	public static Coordenadas intersectarRectaYArco(EcuacionRecta ecuacion1,
 	    EcuacionCircunferencia ecuacion2, DatosArcos elemento2) {
 		Coordenadas interseccion=new Coordenadas(0,0);
@@ -205,7 +231,12 @@ public class compensacionContorno {
 		return interseccion;
 		}
 	
-	
+	/** Method to calculate the point of intersection between a line and a circumference.
+	 * @param ecuacion1 is the line's equation.
+	 * @param ecuacion2 is the circumference's equation.
+	 * @param elemento2 is the Arc's data.
+	 * @return a point.
+	 */
 		private static Coordenadas intersectarRectaConArcoCasoGeneral(
 			EcuacionRecta ecuacion1, EcuacionCircunferencia ecuacion2,
 			Coordenadas interseccionArcoOriginal) {
@@ -222,6 +253,12 @@ public class compensacionContorno {
 		return interseccion;
 	}
 
+		/** Method to calculate the point of intersection between a  vertical line and a circumference.
+		 * @param ecuacion1 is the line's equation.
+		 * @param ecuacion2 is the circumference's equation.
+		 * @param elemento2 is the Arc's data.
+		 * @return a point.
+		 */
 		private static Coordenadas intersectarArcoConRectaVertical(
 			EcuacionRecta ecuacion1, EcuacionCircunferencia ecuacion2,
 			Coordenadas interseccionArcoOriginal) {
@@ -241,6 +278,13 @@ public class compensacionContorno {
 		return interseccion;
 	}
 
+		/** Method to select an intersection point of two possibilities.
+		 * @param ecuacion2 is the circumference's equation
+		 * @param y1 is the first possibly intersection point calculated.
+		 * @param y2 is the second possibly intersection point calculated.
+		 * @param interseccionArcoOriginal is the original point of intersection between an arc and another entity.
+		 * @return a point.
+		 */
 		private static double seleccionarPuntoY(
 				EcuacionCircunferencia ecuacion2, double y1, double y2,
 				Coordenadas interseccionArcoOriginal) {
@@ -261,6 +305,12 @@ public class compensacionContorno {
 			return y;
 		}
 
+		/** Method to calculate the point of intersection between an horizontal line and a circumference.
+		 * @param ecuacion1 is the line's equation.
+		 * @param ecuacion2 is the circumference's equation.
+		 * @param elemento2 is the Arc's data.
+		 * @return a point.
+		 */
 		private static Coordenadas intersectarArcoConRectaHorizontal(
 			EcuacionRecta ecuacion1, EcuacionCircunferencia ecuacion2,
 			Coordenadas interseccionArcoOriginal) {
@@ -278,6 +328,14 @@ public class compensacionContorno {
 		return interseccion;
 	}
 
+
+		/** Method to select an intersection point of two possibilities.
+		 * @param ecuacion2 is the circumference's equation
+		 * @param x1 is the first possibly intersection point calculated.
+		 * @param x2 is the second possibly intersection point calculated.
+		 * @param interseccionArcoOriginal is the original point of intersection between an arc and another entity.
+		 * @return a point.
+		 */
 		private static double seleccionarPuntoX(
 				EcuacionCircunferencia ecuacion2, double x1, double x2,
 				Coordenadas interseccionArcoOriginal) {
@@ -298,7 +356,13 @@ public class compensacionContorno {
 			return x;
 		}
 
-	
+		/** Method to calculate the point of intersection between two circumferences.
+		 * @param ecuacion1 is the first circumference's equation.
+		 * @param ecuacion2 is the second circumference's equation.
+		 * @param elemento1 is the first Arc's data.
+		 * @param elemento1 is the second Arc's data. 
+		 * @return a point.
+		 */
 	public static Coordenadas intersectarArcos(EcuacionCircunferencia ecuacion1,
 			EcuacionCircunferencia ecuacion2, DatosArcos elemento1, DatosArcos elemento2) {
 		Coordenadas interseccion=new Coordenadas(0,0);
@@ -338,6 +402,14 @@ public class compensacionContorno {
 		return interseccion;
 	}
 
+
+	/** Method to calculate a list of equations from a list of entities.
+	 * @param ecuacion2 is the circumference's equation
+	 * @param y1 is the first possibly intersection point calculated.
+	 * @param y2 is the second possibly intersection point calculated.
+	 * @param interseccionArcoOriginal is the original point of intersection between an arc and another entity.
+	 * @return a point.
+	 */
 	public static Hashtable ObtenerListaEcuaciones(
 		Hashtable listaEntidadesCompensadas, double radioHerramienta) {
 		Hashtable listaEcuaciones=new Hashtable();

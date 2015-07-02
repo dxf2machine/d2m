@@ -83,11 +83,19 @@ public class GCode {
     public static JTextArea taladro = new JTextArea();
     public static JTextArea plano=new JTextArea();
         
-	public GCode() {
+//	public GCode() {
 		// Tabla.ObtenerTablas();
 		// TODO Auto-generated constructor stub
-	}
+//	}
 
+	/** Method to generate the drill process.
+	 * @param mecanizarRasgo 
+	 * @param Lista
+	 * @param Herramientas
+	 * @param profu
+	 * @param principal
+	 * @return a point.
+	 */
 	public static JTextArea GenerarTaladrado(GCode mecanizarRasgo, Hashtable Lista,
 			Hashtable Herramientas, double profu, JTextArea principal) {
 		Hashtable TaladradoOptimizado = ObtenerTaladradoOptimizado(Lista);
