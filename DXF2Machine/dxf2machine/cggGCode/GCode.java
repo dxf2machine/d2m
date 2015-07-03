@@ -88,13 +88,13 @@ public class GCode {
 		// TODO Auto-generated constructor stub
 //	}
 
-	/** Method to generate the drill process.
-	 * @param mecanizarRasgo 
-	 * @param Lista
-	 * @param Herramientas
-	 * @param profu
-	 * @param principal
-	 * @return a point.
+	/** Method to generate the drilling process.
+	 * @param mecanizarRasgo is an instance of the method used to machining the selected feature.
+	 * @param Lista is the entities's list to be machined
+	 * @param Herramientas is the tool's list
+	 * @param profu is the deepness of the feature.
+	 * @param principal is the text area where the code of the main file is generated.
+	 * @return the drilling process code.
 	 */
 	public static JTextArea GenerarTaladrado(GCode mecanizarRasgo, Hashtable Lista,
 			Hashtable Herramientas, double profu, JTextArea principal) {
@@ -117,7 +117,10 @@ public class GCode {
 
 	}
 
-
+	/** Method to end the drilling process
+	 * @param taladrado is the text area where the drill process code is generated.
+	 * @return the drilling process code.
+	 */
 	private static void finalizarTaladrado(JTextArea taladrado) {
 		taladrado.append(cancelarCicloFijo);
 		// TODO Auto-generated method stub
@@ -126,7 +129,14 @@ public class GCode {
 	
 
 
-
+	/** Method to generate the contouring process.
+	 * @param mecanizarRasgo is an instance of the method used to machining the selected feature.
+	 * @param Lista is the entities's list to be machined
+	 * @param Herramientas is the tool's list
+	 * @param profu is the deepness of the feature.
+	 * @param principal is the text area where the code of the main file is generated.
+	 * @return the contouring process code.
+	 */
 	public JTextArea GenerarContorneado(GCode mecanizarRasgo, Hashtable Lista,
 			Hashtable Herramientas, double profu, JTextArea principal) {
 		Herramienta herramienta = (Herramienta) Herramientas.get("Contorneado");
@@ -174,6 +184,14 @@ public class GCode {
         return pasada;
 	}
 
+	/** Method to generate the engraving process.
+	 * @param mecanizarRasgo is an instance of the method used to machining the selected feature.
+	 * @param Lista is the entities's list to be machined
+	 * @param Herramientas is the tool's list
+	 * @param profu is the deepness of the feature.
+	 * @param principal is the text area where the code of the main file is generated.
+	 * @return the engraving process code.
+	 */
 	public JTextArea GenerarGrabado(GCode mecanizarRasgo,Hashtable Lista,
 		Hashtable Herramientas, double profu, JTextArea principal) {
 		Hashtable GrabadoOptimizado = ObtenerGrabadoOptimizado(Lista);
@@ -213,6 +231,14 @@ public class GCode {
 
 	}
 
+	/** Method to generate the facing process.
+	 * @param mecanizarRasgo is an instance of the method used to machining the selected feature.
+	 * @param Lista is the entities's list to be machined
+	 * @param Herramientas is the tool's list
+	 * @param profu is the deepness of the feature.
+	 * @param principal is the text area where the code of the main file is generated.
+	 * @return the facing process code.
+	 */
 	public static JTextArea GenerarPlaneado(GCode mecanizarRasgo,Hashtable Lista,
 			Hashtable herramientas, double profu, JTextArea principal) {
 		Hashtable PlaneadoOptimizado = ObtenerPlaneadoOptimizado(Lista);
