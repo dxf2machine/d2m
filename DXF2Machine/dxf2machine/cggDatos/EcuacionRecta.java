@@ -25,14 +25,6 @@ public class EcuacionRecta extends EcuacionEntidad {
 	public double C;
 	
 
-	/*
-	 * a es el parametro que acompania a y
-	 * b es el parametro que acompania a x
-	 * c es el termino independiente
-	 * la ordenada al origen sera c/a
-	 * la pendiente de la recta sera b/a
-	 * salvo el caso particular en que a=0 y tenemos una recta paralela al eje y
-	 */
     public EcuacionRecta(double A, double B,double C) {
     	this.A = A;	
     	this.B = B;

@@ -16,6 +16,8 @@ package cggGCode;
 import java.util.Enumeration;
 import java.util.Hashtable;
 
+import javax.swing.JOptionPane;
+
 import cggColeccion.ColeccionFunciones;
 import cggDatos.Coordenadas;
 import cggDatos.DatosArcos;
@@ -96,11 +98,7 @@ public class compensacionContorno {
 				DatosCirculo dato=(DatosCirculo)datosCirculo;
 				ecuacion.centroX=dato.CentroX;
 				ecuacion.centroY=dato.CentroY;
-				//if(dato.orientacion==0){
-				//	ecuacion.Radio=dato.Radio-radioHerramienta;
-				//}else{
-					ecuacion.Radio=dato.Radio+radioHerramienta;
-				//}
+				ecuacion.Radio=dato.Radio+radioHerramienta;
 			}else{
 				DatosArcos datos=(DatosArcos)datosCirculo;
 				ecuacion.centroX=datos.Xcentro;
@@ -240,17 +238,8 @@ public class compensacionContorno {
 		private static Coordenadas intersectarRectaConArcoCasoGeneral(
 			EcuacionRecta ecuacion1, EcuacionCircunferencia ecuacion2,
 			Coordenadas interseccionArcoOriginal) {
-		Coordenadas interseccion=new Coordenadas(0,0);
-		double a=(ecuacion1.B*ecuacion1.B)/(ecuacion1.A*ecuacion1.A)+1;
-		double b=(2*ecuacion1.B/ecuacion1.A*(ecuacion1.C/ecuacion1.A+ecuacion2.centroX)-2*ecuacion2.centroY);
-		double c=Math.pow(ecuacion1.C/ecuacion1.A+ecuacion2.centroX,2)+ecuacion2.centroY*ecuacion2.centroY-ecuacion2.Radio*ecuacion2.Radio;
-		double y1=(-b+Math.sqrt(b*b-4*a*c))/2*a;
-		double y2=(-b-Math.sqrt(b*b-4*a*c))/2*a;
-		interseccion.y=seleccionarPuntoY(ecuacion2,y1,y2,interseccionArcoOriginal);
-		interseccion.x=(-ecuacion1.C-ecuacion1.B*interseccion.y)/ecuacion1.A;
-		interseccion.x=(double) FormatoNumeros.formatearNumero(interseccion.x);
-		interseccion.y=(double) FormatoNumeros.formatearNumero(interseccion.y);
-		return interseccion;
+			JOptionPane.showMessageDialog(null, "Lo siento, la versión actual no permite generar el contorneado seleccionado", "Error", JOptionPane.ERROR_MESSAGE);
+			return null;
 	}
 
 		/** Method to calculate the point of intersection between a  vertical line and a circumference.
@@ -272,7 +261,7 @@ public class compensacionContorno {
 		}
 		double y1=ecuacion2.centroY+parametro;
 		double y2=ecuacion2.centroY-parametro;
-		interseccion.y=seleccionarPuntoY(ecuacion2,y1,y2,interseccionArcoOriginal);
+		interseccion.y=seleccionarPuntoY(ecuacion1,ecuacion2,y1,y2,interseccionArcoOriginal);
 		interseccion.x=(double) FormatoNumeros.formatearNumero(interseccion.x);
 		interseccion.y=(double) FormatoNumeros.formatearNumero(interseccion.y);
 		return interseccion;
@@ -285,20 +274,16 @@ public class compensacionContorno {
 		 * @param interseccionArcoOriginal is the original point of intersection between an arc and another entity.
 		 * @return a point.
 		 */
-		private static double seleccionarPuntoY(
+		private static double seleccionarPuntoY(EcuacionRecta ecuacion1,
 				EcuacionCircunferencia ecuacion2, double y1, double y2,
 				Coordenadas interseccionArcoOriginal) {
 			double y=0;
-			if(interseccionArcoOriginal.y<ecuacion2.centroY){
-				if(y1<ecuacion2.centroY){
-					y=y1;
-				}else{
-					y=y2;
-				}
+			double cumple1=ecuacion1.A*(-ecuacion1.B*y1/ecuacion1.A-ecuacion1.C/ecuacion1.A)+ecuacion1.B*y1+ecuacion1.C;
+			double cumple2=ecuacion1.A*(-ecuacion1.B*y2/ecuacion1.A-ecuacion1.C/ecuacion1.A)+ecuacion1.B*y2+ecuacion1.C;
+			if(cumple1==0){
+				y=y1;
 			}else{
-				if(y1>ecuacion2.centroY){
-					y=y1;
-				}else{
+				if(cumple2==0){
 					y=y2;
 				}
 			}
@@ -365,41 +350,8 @@ public class compensacionContorno {
 		 */
 	public static Coordenadas intersectarArcos(EcuacionCircunferencia ecuacion1,
 			EcuacionCircunferencia ecuacion2, DatosArcos elemento1, DatosArcos elemento2) {
-		Coordenadas interseccion=new Coordenadas(0,0);
-		double factor=1;
-		Coordenadas FinArco= ColeccionFunciones.ObtenerCoordenadaFinEntidad(elemento2);
-		if(FinArco.y<((DatosArcos)elemento2).Ycentro){
-			factor=-1;
-		}
-		double A=2*(ecuacion1.centroX-ecuacion2.centroX);
-		double B=2*(ecuacion1.centroY-ecuacion2.centroY);
-		double C=ecuacion2.centroX-ecuacion1.centroX+ecuacion2.centroY-ecuacion2.centroY-(Math.pow(ecuacion2.Radio, 2)-Math.pow(ecuacion1.Radio, 2));
-		double aa=Math.pow(A/B, 2)+1;
-		double bb=-2*A*C/(Math.pow(B, 2)*ecuacion2.Radio);
-		double cc=(C*C/(B*B*ecuacion2.Radio))-1;
-		if(Math.pow(bb, 2)!=4*aa*cc){
-			double coseno1=-(bb+Math.sqrt(Math.pow(bb,2)-4*aa*cc))/2*aa;
-			double coseno2=-(bb-Math.sqrt(Math.pow(bb,2)-4*aa*cc))/2*aa;
-			double ang1=Math.acos(coseno1);
-			double ang2=Math.acos(coseno2);
-			double angI=elemento2.obtenerAnguloInicial();
-			if(Math.abs(angI-ang1)<Math.abs(angI-ang2)){
-				interseccion.x=ecuacion2.Radio*coseno1+ecuacion2.centroX;
-				interseccion.y=factor*ecuacion2.Radio*Math.sqrt(1-Math.pow((interseccion.x-ecuacion2.centroX)/ecuacion2.Radio, 2))+elemento2.Ycentro;
-			}else{
-				interseccion.x=ecuacion2.Radio*coseno2+ecuacion2.centroX;
-				interseccion.y=factor*ecuacion2.Radio*Math.sqrt(1-Math.pow((interseccion.x-ecuacion2.centroX)/ecuacion2.Radio, 2))+elemento2.Ycentro;
-			}
-			
-		}else{
-			double coseno=-bb;
-			interseccion.x=ecuacion2.Radio*coseno+ecuacion2.centroX;
-			interseccion.y=factor*ecuacion2.Radio*Math.sqrt(1-Math.pow((interseccion.x-ecuacion2.centroX)/ecuacion2.Radio, 2))+elemento2.Ycentro;
-		}
-		
-		interseccion.x=(double) FormatoNumeros.formatearNumero(interseccion.x);
-		interseccion.y=(double) FormatoNumeros.formatearNumero(interseccion.y);
-		return interseccion;
+			JOptionPane.showMessageDialog(null, "Lo siento, la versión actual no permite generar el contorneado seleccionado", "Error", JOptionPane.ERROR_MESSAGE);
+			return null;
 	}
 
 

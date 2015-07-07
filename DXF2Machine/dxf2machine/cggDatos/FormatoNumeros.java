@@ -38,8 +38,6 @@ public class FormatoNumeros {
 		return numero;
 		}catch(NumberFormatException ex){
 			 JOptionPane.showMessageDialog(null, "Imposible generar el mecanizado solicitado","Error" ,JOptionPane.ERROR_MESSAGE);
-			
-        	//System.out.println("Imposible mecanizar el rasgo seleccionado");
 			};
 		return null;
 }

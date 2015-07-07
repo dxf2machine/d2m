@@ -83,10 +83,6 @@ public class GCode {
     public static JTextArea taladro = new JTextArea();
     public static JTextArea plano=new JTextArea();
         
-//	public GCode() {
-		// Tabla.ObtenerTablas();
-		// TODO Auto-generated constructor stub
-//	}
 
 	/** Method to generate the drilling process.
 	 * @param mecanizarRasgo is an instance of the method used to machining the selected feature.
@@ -97,7 +93,7 @@ public class GCode {
 	 * @return the drilling process code.
 	 */
 	public static JTextArea GenerarTaladrado(GCode mecanizarRasgo, Hashtable Lista,
-			Hashtable Herramientas, double profu, JTextArea principal) {
+		Hashtable Herramientas, double profu, JTextArea principal) {
 		Hashtable TaladradoOptimizado = ObtenerTaladradoOptimizado(Lista);
 		int P = 1;
 		datos elemento = (datos) TaladradoOptimizado.get(1);
@@ -123,7 +119,6 @@ public class GCode {
 	 */
 	private static void finalizarTaladrado(JTextArea taladrado) {
 		taladrado.append(cancelarCicloFijo);
-		// TODO Auto-generated method stub
 	}
 
 	
@@ -138,13 +133,12 @@ public class GCode {
 	 * @return the contouring process code.
 	 */
 	public JTextArea GenerarContorneado(GCode mecanizarRasgo, Hashtable Lista,
-			Hashtable Herramientas, double profu, JTextArea principal) {
+		Hashtable Herramientas, double profu, JTextArea principal) {
 		Herramienta herramienta = (Herramienta) Herramientas.get("Contorneado");
 		Hashtable ContornoOptimizado=new Hashtable();
 		ContornoOptimizado = ObtenerContorneadoOptimizado(Lista,herramienta);
 		double Zcambio=herramienta.Zcambio;
 		double pasada = herramienta.Pasada;
-	//	inicializar((datos) ContornoOptimizado.get(1), herramienta, contorno);
 		double profuRasgo = Double.parseDouble(DXF_Loader.profContorno
 				.getText());
 		int P = 0;
@@ -164,13 +158,11 @@ public class GCode {
 	}
 
 	private static int ObtenerRepeticiones(double pasada, double profuRasgo) {
-		// TODO Auto-generated method stub
 		int P = (int) (profuRasgo / pasada);
 		return P;
 	}
 
 	private static double ObtenerPasada(double pasada, double profuRasgo) {
-		// TODO Auto-generated method stub
 		double cantidad = 0;
 		if (pasada <= profuRasgo) {
 			cantidad = profuRasgo / pasada;
@@ -195,7 +187,6 @@ public class GCode {
 	public JTextArea GenerarGrabado(GCode mecanizarRasgo,Hashtable Lista,
 		Hashtable Herramientas, double profu, JTextArea principal) {
 		Hashtable GrabadoOptimizado = ObtenerGrabadoOptimizado(Lista);
-		
 		Herramienta herramienta = (Herramienta) Herramientas.get("Grabado");
 		double pasada = herramienta.Pasada;
 		double zcambio=herramienta.Zcambio;
@@ -217,19 +208,19 @@ public class GCode {
 
 	}
 
+/**Method to generate the translate of the entities into Machine code
+ * @param lista is the list of entities
+ * @param rasgo is the text area where the code is written
+ * @param pasada is the depth of the feature
+ * @param repeticiones is the number of times that the subprogram must be repeated if the code is generated into a subprogram.
+ * @param herramienta is the tool involved in the process.
+ * @return the code in a text area.
+ */
 	public JTextArea mecanizarLista(Hashtable lista, JTextArea rasgo,
-			double pasada, int P, Herramienta herramienta) {
-		// Subclase
+			double pasada, int repeticiones, Herramienta herramienta) {
 		return null;
 	}
 
-	private static void agregarPrimerAvance(JTextArea grabado,
-			Herramienta herramienta2, datos datos) {
-		String linea = datos.mecanizate();
-		//grabado.append(linea + avance + herramienta2.Avance + EOL);
-		// TODO Auto-generated method stub
-
-	}
 
 	/** Method to generate the facing process.
 	 * @param mecanizarRasgo is an instance of the method used to machining the selected feature.
@@ -242,14 +233,10 @@ public class GCode {
 	public static JTextArea GenerarPlaneado(GCode mecanizarRasgo,Hashtable Lista,
 			Hashtable herramientas, double profu, JTextArea principal) {
 		Hashtable PlaneadoOptimizado = ObtenerPlaneadoOptimizado(Lista);
-		// primero inicializamos el mecanizado
-		// recorremos la tabla diciendole a cada entidad que se mecanice y le
-		// pasamos el postprocesador
 		Herramienta herramienta = (Herramienta) herramientas.get("Planeado");
 		double zcambio=herramienta.Zcambio;
 		double pasada = herramienta.Pasada;
 		int P = 0;
-	//	inicializar((datos) PlaneadoOptimizado.get(1), herramienta, planeado);
 		double profuRasgo = Double.parseDouble(DXF_Loader.profPlano.getText());
 		if (pasada > profuRasgo) {
 			pasada = profuRasgo;
@@ -267,22 +254,25 @@ public class GCode {
 		return principal;
 	}
 
-	
+	/**
+	 * Method to finish the translation of a particular feature. 
+	 * @param rasgo is the feature to finish.
+	 * @param principal is the main translation file.
+	 * @param repeticiones is the number of times that a subprogram must be repeated if the feature is generated in a subprogram.
+	 * @param zcambio is the security high for the tool's change.
+	 * @return the generated code in a texr area.
+	 */
 	private static JTextArea finalizar(JTextArea rasgo, JTextArea principal,
-			int p, double zcambio) {
-		
-		// TODO Auto-generated method stub
+			int repeticiones, double zcambio) {
 		rasgo=chequearContenido(rasgo);
 		if (subprograma == false) {
 			principal.append(rasgo.getText());
 		} else {
 			++nroSubprograma;
 			llamadaSubprog = llamadaSubprograma.replace("programa", Integer.toString(nroSubprograma));
-			llamadaSubprog=llamadaSubprog.replace("repeticiones",Integer.toString(p));
+			llamadaSubprog=llamadaSubprog.replace("repeticiones",Integer.toString(repeticiones));
 			String nombreSubprog=nombreSubprograma.replace("nombre",Integer.toString(nroSubprograma));
 			String ruta = new String(Ruta + nombreSubprog);
-			//System.out.println(ruta);
-			//String numero=incrementarLinea(++nroLineaSubprog);
      		rasgo.append(retornoSubprograma);
 			try {
 				BufferedWriter out = new BufferedWriter(new FileWriter(ruta));
@@ -291,20 +281,19 @@ public class GCode {
 			} catch (Exception ex) {
 				JOptionPane.showMessageDialog(null, ex.getMessage());
 			}
-			//String nume = ("N" + (++nroLineaPrincipal));
 			principal.append(llamadaSubprog);
-			//nume = ("N" + (++nroLineaPrincipal));
-			
-		
 		}
 		String linea=coordenadaAbsoluta+avanceRapidoZ.replace("z",Double.toString(zcambio));
 		principal.append(linea);
 		return principal;
 	}
 
-	
+	/**
+	 * Method to check if there's any code generated in a text area
+	 * @param rasgo is the text area to check
+	 * @return the text area checked.
+	 */
 	private static JTextArea chequearContenido(JTextArea rasgo) {
-		// TODO Auto-generated method stub
 		if(rasgo.getText()==null){
 			rasgo.setText("Lo siento, algunos de los elementos que desea mecanizar no son admitidos a�n por DXF2GCode,"
 					+ "Por favor, revise las entidades seleccionadas o modifique el archivo en su editor CAD para proseguir.");
@@ -312,19 +301,33 @@ public class GCode {
 		return rasgo;
 	}
 
+	/**
+	 * Method to get the optimized list of entities for the face milling.
+	 * @param listaTocho the face milling list.
+	 * @return an optimized list of entities.
+	 */
 	public static Hashtable ObtenerPlaneadoOptimizado(Hashtable listaTocho) {
 		Hashtable ListaTochoOptimizada = new Hashtable();
 		ListaTochoOptimizada = Optimizacion.Optimizacion(listaTocho);
 		return ListaTochoOptimizada;
 	}
 
-	
+	/**
+	 * Method to get the optimized list of entities for the contouring. 
+	 * @param listaContorno the contouring list.
+	 * @param contorneado the tool involved in the process.
+	 * @return an optimized list of entities.
+	 */
 	public static Hashtable ObtenerContorneadoOptimizado(Hashtable listaContorno,Herramienta contorneado) {
 		Hashtable ListaContornoOptimizada = new Hashtable();
 		ListaContornoOptimizada = OptimizacionMetodo2.Optimizacion(TablaContorno.ListaContorno,contorneado.Diametro/2);
 		return ListaContornoOptimizada;
 	}
 
+	/** Method to get the optimized list of entities for the engraving.
+	 * @param listaGrabado is the engraving list.
+	 * @return an optimized list of entities.
+	 */
 	public static Hashtable ObtenerGrabadoOptimizado(Hashtable listaGrabado) {
 		Hashtable ListaGrabadoOptimizada = new Hashtable();
 		ListaGrabadoOptimizada = OptimizacionMetodo1
@@ -332,6 +335,11 @@ public class GCode {
 		return ListaGrabadoOptimizada;
 	}
 
+	/**
+	 * Method to get the optimized list of entities for the drilling.
+	 * @param listaAgujeros is the drilling list.
+	 * @return an optimized list of entities.
+	 */
 	public static Hashtable ObtenerTaladradoOptimizado(Hashtable listaAgujeros) {
 		Hashtable ListaAgujerosOptimizada = new Hashtable();
 		ListaAgujerosOptimizada = Optimizacion
@@ -339,23 +347,24 @@ public class GCode {
 		return ListaAgujerosOptimizada;
 	}
 
+	/**
+	 * Method to generate the initialization of the main translation file. 
+	 * @param principal is the text area where the code is generated.
+	 * @return a text area with the generated code.
+	 */
 	public static JTextArea EncabezarPrograma(JTextArea principal) {
 		String nroProg = "0001";
-		//nroLineaPrincipal = 1;
-		//String nroLinea = ("N" + nroLineaPrincipal);
-		//if (nombreEnEncabezado == true) {
 		String linea=encabezado.replace("numero", nroProg);
 			principal.append(linea);
-		//	nroLineaPrincipal += 1;
-	//	} 
-		
 		return principal;
 	}
 
+	/**
+	 * Method to save the main file
+	 * @param mecanizado is the text area with the main code generated.
+	 * @param consola is the console to display the generated code in the user's interface.
+	 */
 	public static void archivarMecanizado(JTextArea mecanizado, JTextPane consola) {
-		
-		//nroLineaPrincipal = mecanizado.getLineCount() + numeracionReferencia;
-		//String nume = incrementarLinea(++nroLineaPrincipal);
 		mecanizado.append(terminacion);
 		int numero=0;
 		File f;
@@ -375,6 +384,15 @@ public class GCode {
 		}
 	}
 
+	/**
+	 * Method to initialize a feature
+	 * @param principal is the text area of the main program.
+	 * @param tool is the tool involved in the process.
+	 * @param inicial is the data of the first entity to translate.
+	 * @param profRasgo is the depth of the feature.
+	 * @param pasada is the partial depth of the machining process.
+	 * @return a text area with the initialized code.
+	 */
 	public static JTextArea inicializarRasgo(JTextArea principal,
 			Herramienta tool, datos inicial, double profRasgo, double pasada) {
 		int nroHerramienta = (int) tool.Numero;
@@ -398,12 +416,11 @@ public class GCode {
 		return principal;
 	}
 
-		public static String incrementarLinea(int numero) {
-		String linea = null;
-		linea = ("N" + numero);
-		return linea;
-	}
-
+/**
+ * Method to get the data of the machine post-processor
+ * @param postprocesador is the machine info
+ * @param ruta2 is the directory where the file will be saved
+ */
 	public static void prepararPostprocesador(String postprocesador,
 			String ruta2) {
 		Ruta = ruta2;
@@ -435,7 +452,11 @@ public class GCode {
 		rampaZ=maquina.getString("rampaZ");
 	}
 
-
+/**
+ * Method to generate the linear feed.
+ * @param elemento the line to be translated.
+ * @return a string
+ */
 	public static String avanceLineal(DatosLinea elemento) {
 		String linea = null;
         Coordenadas dato=ColeccionFunciones.ObtenerCoordenadaFinEntidad(elemento);
@@ -444,6 +465,11 @@ public class GCode {
 		return linea;
 	}
 
+	/**
+	 * Method to generate the fast forward.
+	 * @param elemento is the final point of the movement.
+	 * @return a string.
+	 */
 	public static String avanceRapido(datos elemento) {
 		String linea = null;
 		Coordenadas dato=ColeccionFunciones.ObtenerCoordenadaInicioEntidad(elemento);
@@ -452,6 +478,12 @@ public class GCode {
 		return linea;
 	}
 
+	/**
+	 * Method to generate the circularSegment feed.
+	 * @param elemento is the arc to translate.
+	 * @return a string.
+	 */
+	 
 	public static String avanceSegmentoCircular(DatosArcos elemento) {
 		String linea = null;
 		Coordenadas dato=ColeccionFunciones.ObtenerCoordenadaFinEntidad(elemento);
@@ -468,7 +500,11 @@ public class GCode {
 			return linea;
 	}
 
-	
+	/**
+	 * Method to generate the circular feed.
+	 * @param elemento the circle to translate.
+	 * @return a string.
+	 */
 	public static String avanceCicular(DatosCirculo elemento) {
 		String linea1=null;
 		String linea2=null;
@@ -493,12 +529,22 @@ public class GCode {
 		return linea;
 	}
 
+	/**
+	 * Method to get entities info for the drilling process
+	 * @param elemento a circular entity.
+	 * @return a string.
+	 */
 	public static String coordenadasTaladro(DatosCirculo elemento) {
 		String linea = coordenadas.replace("x",Double.toString(elemento.CentroX));
 		linea=linea.replace("y", Double.toString(elemento.CentroY));
 		return linea;
 	}
 
+	/**
+	 * Method to set the console properties.
+	 * @param principal is the text area with the main program.
+	 * @param consola is the console of the user's interface.
+	 */
 	public static void formatearConsola(JTextArea principal,JTextPane consola) {
 		consola.setContentType("text/html");
 		String allText = principal.getText() ;
@@ -547,12 +593,6 @@ public class GCode {
 		 	}
 		}
 		consola.setText(formateo);
-		
-        
-       //consola.add(contorneado);
-       //consola.add(grabado);
 		}
-		// TODO Auto-generated method stub
-		
 	}
 

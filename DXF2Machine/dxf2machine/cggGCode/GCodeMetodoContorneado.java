@@ -28,17 +28,21 @@ import cggDatos.datos;
  * 
  */ 
 public class GCodeMetodoContorneado extends GCode {
-/*
- * Esta clase hará la optimización del tipo de mecanizado contorneado
- * 
-   */
 	public static double tramo=0;
 	public static double incrementoTramo=0;
 	
+/**
+ * Method to generate the contouring.
+ * @param lista is the list of entities.
+ * @param rasgo is the text area were the code is generated.
+ * @param pasada is the partial depth of the contouring.
+ * @param repeticiones is the number of times that the subprogram must be called if the code is generated in a subprogram.
+ * @param herramienta is the tool involved in the process.
+ */
 	public JTextArea mecanizarLista(Hashtable lista, JTextArea rasgo,
-			double pasada, int P, Herramienta herramienta) {
-			if(P>0){
-				--P;
+			double pasada, int repeticiones, Herramienta herramienta) {
+			if(repeticiones>0){
+				--repeticiones;
 				incrementoTramo=pasada/lista.size();
 				rasgo.append(coordenadaAbsoluta);
 				if(tramo==0){
@@ -52,8 +56,7 @@ public class GCodeMetodoContorneado extends GCode {
 					rasgo.append(linea);
 					tramo-=incrementoTramo;
 						}
-				mecanizarLista(lista,rasgo,pasada,P,herramienta);
-				
+				mecanizarLista(lista,rasgo,pasada,repeticiones,herramienta);
 			}
 				else{
 					for (int i = 1; i <= lista.size(); i++) {
@@ -64,20 +67,6 @@ public class GCodeMetodoContorneado extends GCode {
 						   }
 					    tramo=0;
 				        }
-				
-							
-					
-			//}
 			return rasgo;
 	}
-	/*		if(P>0){
-				String linea=avanceLinealZ.replace("z", "-"+Double.toString(pasada));
-				rasgo.append(coordenadaRelativa+linea);
-			}
-				if (subprograma == false) {
-					mecanizarLista(lista,rasgo,pasada,P,herramienta);	
-			}
-		}
-		
-	}*/	
 }

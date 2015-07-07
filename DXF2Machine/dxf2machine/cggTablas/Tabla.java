@@ -45,6 +45,10 @@ public class Tabla {
 	public static HashSet ListaEntidades = new HashSet();
 	public static JTextArea principal = new JTextArea();
 	public static JTextPane consola=new JTextPane();
+
+	/**
+	 * Method to get access to the original list of entities.
+	 */
 	public static void AccederALaLista() {
 
 		for (int i = 0; i < myCanvas._dxf._u._myTables.size(); i++) {
@@ -63,21 +67,28 @@ public class Tabla {
 
 	}
 
+	/**
+	 * Method to clear the list's content.
+	 */
 	public static void resetearTabla() {
 		ListaEntidades.clear();
 		principal.setText("");
 		
 	}
 
+	/**
+	 * Method to add entities into a list.
+	 * @param entidad is the entity to add.
+	 */
 	public static void agregarDatoATabla(datos entidad) {
-		// aca tengo que agregar todos los datos de las distintas entidades a
-		// una tabla,
-		// luego los voy a separar haciendo comparaciones a la tabla
-		// correspondiente segun el color de la entidad <--- pero esto en otro
-		// metodo
 		ListaEntidades.add(entidad);
 	}
 
+	/**
+	 * Method to collect entities by a certain criteria.
+	 * @param postprocesador is the machine's post processor.
+	 * @param ruta is a selected directory.
+	 */
 	public static void ObtenerTablas(String postprocesador, String ruta) {
 
 		Tabla.resetearTabla();
@@ -98,13 +109,6 @@ public class Tabla {
 		double profGrabo = Double.parseDouble(DXF_Loader.profGrabo.getText());
 		double profTaladro = Double.parseDouble(DXF_Loader.profTaladro.getText());
 		String postProce = (String) TablaPostprocesadores.ObtenerPostprocesador(postprocesador);
-		
-		GCode.prepararPostprocesador(postProce, ruta);
-		/*
-		 * if(postprocesado=="GCodeMetodo1"){ postProce= new GCodeMetodo1();
-		 * principal=postProce.inicializarMain(principal); }else{ postProce=new
-		 * GCodeMetodo2(); principal=postProce.inicializarMain(principal); }
-		 */
 		GCode.prepararPostprocesador(postProce, ruta);
 		principal = GCode.EncabezarPrograma(principal);
 		String texto=principal.getText();
@@ -147,6 +151,12 @@ public class Tabla {
 	}
 }
 
+	/**
+	 * Method to set the reference point of a map.
+	 * @param lista is the entities's list
+	 * @param centro is the center of the reference point.
+	 * @return a list of entities.
+	 */
 	private static Hashtable desplazarCentro(Hashtable lista,
 			DatosCirculo centro) {
 		Hashtable listaDesplazada=new Hashtable();

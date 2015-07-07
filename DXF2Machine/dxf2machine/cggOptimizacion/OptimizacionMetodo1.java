@@ -33,7 +33,6 @@ public class OptimizacionMetodo1 extends Optimizacion {
 		listaOptimizada = ColeccionFunciones.ObtenerElementosOrdenados(
 				listaOptimizada, lista);
 		return listaOptimizada;
-		// TODO Auto-generated constructor stub
 	}
 
 }

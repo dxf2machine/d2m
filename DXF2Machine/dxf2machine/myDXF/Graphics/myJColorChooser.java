@@ -1,15 +1,21 @@
-/*------------------------------------------------------------------------------------------ 
-Copyright 2007-2009, Marc Paris, Stephan Soulard and Edouard Vanhauwaert.
+/*--------------------------------------------------------------------------------------- 
+Copyright 2007, Stephan Soulard and Edouard Vanhauwaert.
 Copyright 2014, Celeste Gabriela Guagliano. 
 
-This file was originaly part of DXF project and then modified by Celeste Gabriela Guagliano for DXF2Machine project.
+This file was originaly part of DXF project and then modified by 
+Celeste Gabriela Guagliano for DXF2Machine project.
 
-DXF2Machine is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 2 of the License. 
+DXF2Machine is free software: you can redistribute it and/or modify it under the terms of 
+the GNU General Public License as published by the Free Software Foundation, either 
+version 2 of the License. 
 
-DXF2Machine is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. 
+DXF2Machine is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU General Public License for more details. 
 
-You should have received a copy of the GNU General Public License along with DXF2Machine. If not, see <http://www.gnu.org/licenses/>.
-  --------------------------------------------------------------------------------------------*/
+You should have received a copy of the GNU General Public License along with DXF2Machine. 
+If not, see <http://www.gnu.org/licenses/>.
+  ---------------------------------------------------------------------------------------*/
 
 /*
  * Initials     Name
@@ -47,6 +53,12 @@ import cggGCode.SelectorDeDirectorio;
 import cggTablas.Tabla;
 import myDXF.DXF_Loader;
 
+/**
+ * This class generate a Color Chooser.
+ * @author: Stephan Soulard, Edouard Vanhauwaert.
+ * @version: 13/01/15 by Celeste Guagliano
+ * 
+ */ 
 public class myJColorChooser extends JPanel implements ActionListener {
 	public int selectedIndex = 0;
 

@@ -12,7 +12,6 @@ You should have received a copy of the GNU General Public License along with DXF
 
 package cggDatos;
 
-//import java.text.NumberFormat;
 
 import cggColeccion.ColeccionFunciones;
 import cggGCode.GCode;

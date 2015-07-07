@@ -33,17 +33,22 @@ import cggGCode.GCode;
 public class TablaContorno {
 	public static Hashtable ListaContorno = new Hashtable();
 	public static int colorContorno = 5;
+	
+	/**
+	 * Method to get the entities of the contour list.
+	 * @return an entities list.
+	 */
 
 	public static Hashtable obtenerTabla() {
-
-		// TODO Auto-generated method stub
 		resetearTablas();
 		ListaContorno = ColeccionFunciones.ObtenerSubconjunto(
-				Tabla.ListaEntidades, colorContorno);
-		// GCode.GenerarContorneado(ListaContorno);
+		Tabla.ListaEntidades, colorContorno);
 		return ListaContorno;
 	}
 
+	/**
+	 *  Method to reset the content of the list and the text area were the code is generated.
+	 */
 	public static void resetearTablas() {
 		ListaContorno.clear();
 		GCode.contorneado.setText("");

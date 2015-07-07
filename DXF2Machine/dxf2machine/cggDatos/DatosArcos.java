@@ -35,14 +35,13 @@ public class DatosArcos extends datos {
 		this.radio = j;
 		this.AngI = k;
 		this.AngF = l;
-		// TODO Auto-generated constructor stub
+	
 	}
 
 	/** This method translate the entity into machine code.
 	 * @return a string.
 	 */
 	public String mecanizate() {
-		// hace tu gracia.
 		String linea = GCode.avanceSegmentoCircular(this);
 		return linea;
 	}
@@ -76,7 +75,6 @@ public class DatosArcos extends datos {
 			angulo=this.AngI;
 		}else
 			angulo=this.AngF;
-		// TODO Auto-generated method stub
 		return angulo;
 	}
 
@@ -89,7 +87,6 @@ public class DatosArcos extends datos {
 			angulo=this.AngF;
 		}else
 			angulo=this.AngI;
-		// TODO Auto-generated method stub
 		return angulo;
 	}
 	

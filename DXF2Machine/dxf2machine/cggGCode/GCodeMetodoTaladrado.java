@@ -29,43 +29,42 @@ import cggDatos.datos;
  */ 
 
 public class GCodeMetodoTaladrado extends GCode {
-	
+
+	/**
+	 * Method to initialize the direct drilling process
+	 * @param centro is the first hole's center
+	 * @param profuRasgo is the total depth of the feature.
+	 * @param velocidad2 is the spindle speed.
+	 * @param avance2 is the tool's feed rate.
+	 * @param principal is the main program's code.
+	 * @param zseg is the safety height.
+	 * @param zcambio is the safety tool change's height.
+	 */
 	private static void inicializarTaladradoDirecto(Coordenadas centro,
 			double profuRasgo, int velocidad2, double avance2,
 			JTextArea principal, double zseg,double zcambio) {
-		//String numeLinea=null;
-		//if(planoSeguridad=="No"){
-		//	numeLinea=incrementarLinea(++nroLineaPrincipal);
 		    String linea=taladrado.replace("referencia", Double.toString(zseg));
 		    linea=linea.replace("profundidad",Double.toString(profuRasgo));
 		    linea=linea.replace("planoRetraccion",Double.toString(zcambio));
 		    linea=linea.replace("avance",Double.toString(avance2));
 		    principal.append(linea);
-		 //   linea=definirAvance.replace("avance",Double.toString(avance2));
-		 //   linea=linea.replace("z", Double.toString(zseg));
-		 //   principal.append(linea);
-		    
-	/*	}else{
-			numeLinea=incrementarLinea(++nroLineaPrincipal);
-			principal.append(numeLinea+" "+agujereado+" "+planoSeguridad+"25."+" "+comienzoTaladrado+zseg+" "+profundidadAgujereado+profuRasgo+
-					X+centro.x+" "+Y+centro.y+Y+avance+avance2+EOL);
-		}*/
-		// TODO Auto-generated method stub
 		}
-	
+	/**
+	 * Method to initialize the drilling process
+	 * @param datos is the first hole's data.
+	 * @param herramientas is the tool's list.
+	 * @param principal is the main program code.
+	 * @param profuRasgo is the total depth of the feature.
+	 */
 	static void inicializarTaladrado(datos datos,
 			Hashtable herramientas, JTextArea principal, double profuRasgo) {
-		// TODO Auto-generated method stub
 		Herramienta taladro=(Herramienta) herramientas.get("Taladrado");
 		double pasada= taladro.Pasada;
 		int velocidadT=(int)taladro.Velocidad;
 		double avanceT=taladro.Avance;
 		double Zcambio=taladro.Zcambio;
-		//String nume=incrementarLinea(++nroLineaPrincipal);
 		int nroHerramienta = (int) taladro.Numero;
 		Coordenadas centro = (Coordenadas) ColeccionFunciones.ObtenerCoordenadaCentroEntidad(datos);
-		//nroLineaPrincipal = (int) principal.getLineCount() +numeracionReferencia+1 ;
-		//String numeLinea = ("N" + nroLineaPrincipal);
 		String cambioTool=cambioHerramienta.replaceAll("herramienta", Integer.toString(nroHerramienta));
 		cambioTool=cambioTool.replace("velocidad",Integer.toString(velocidadT));
 		cambioTool=cambioTool.replace("x",Double.toString(centro.x));
@@ -80,10 +79,20 @@ public class GCodeMetodoTaladrado extends GCode {
 		}
 		}
 
+	/**
+	 * Method to initialize the deep drilling process
+	 * @param centro is the first hole's center.
+	 * @param pasada is the partiaL depth of the feature.
+	 * @param profuRasgo is the total depth of the feature.
+	 * @param velocidad2 is the spindle speed.
+	 * @param avance2 is the tool's feed rate.
+	 * @param principal is the main's program code.
+	 * @param zseg is the safety height.
+	 * @param zcambio is the safety tool change's height.
+	 */
 	private static void inicializarTaladradoProfundo(Coordenadas centro,
 			double pasada, double profuRasgo, int velocidad2, double avance2,
 			JTextArea principal, double zseg,double zcambio) {
-		// TODO Auto-generated method stub
 	    String linea=taladradoProfundo.replace("referencia", Double.toString(zseg));
 	    linea=linea.replace("profundidad",Double.toString(profuRasgo));
 	    linea=linea.replace("planoRetraccion",Double.toString(zcambio));

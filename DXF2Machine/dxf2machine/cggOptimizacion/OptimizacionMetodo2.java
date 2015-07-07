@@ -33,6 +33,12 @@ import cggGCode.compensacionContorno;
  */ 
 public class OptimizacionMetodo2 extends Optimizacion {
 
+	/**
+	 * Method to get the optimization of an entities's list
+	 * @param lista is the list of entities.
+	 * @param RadioHerramienta is the tool radius.
+	 * @return an optimized list.
+	 */
 	public static Hashtable Optimizacion(Hashtable lista,double RadioHerramienta) {
 		Hashtable listaOptimizada = new Hashtable();
 		Hashtable listaEcuaciones= new Hashtable();
@@ -48,20 +54,27 @@ public class OptimizacionMetodo2 extends Optimizacion {
 				.EvaluarContornoCerrado(listaOptimizada);
 		if (cerrado == true) {
 			listaOptimizada = ColeccionFunciones.OrientarContornoCerrado(listaOptimizada);
-			//listaEntidadesCompensadas=compensacionContorno.GenerarListaEntidadesCompensadas(listaOptimizada, RadioHerramienta);
 			listaEcuaciones=compensacionContorno.ObtenerListaEcuaciones(listaOptimizada,RadioHerramienta);
 			listaCompensada= compensacionContorno.intersectarEcuacionesCompensadas(listaOptimizada,listaEcuaciones);
 			return listaCompensada;
 		} else {
 			return lista;
-			// TODO Auto-generated constructor stub
 		}
 	}
 
+	/**
+	 * Method to calculate the intersection between entities
+	 * @param i is the key of the first entity.
+	 * @param j is the key of the second entity. 
+	 * @param ecuacion1 is the equation of the first entity.
+	 * @param elemento1 is the first entity. 
+	 * @param ecuacion2 is the equation of the second entity.
+	 * @param elemento2 is the second entity.
+	 * @param listaCompensada is the list of compensated entities.
+	 * @return a list of entities.
+	 */
 	public static Hashtable intersectarEntidades(int i,int j, EcuacionEntidad ecuacion1,
 			datos elemento1, EcuacionEntidad ecuacion2, datos elemento2, Hashtable listaCompensada) {
-		//DatosLinea lineaCompensada=new DatosLinea(0, 0, 0, 0, 0, false, 0, 0);
-		//DatosArcos arcoCompensado=new DatosArcos(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, false, 0, 0);
 		Coordenadas interseccion=new Coordenadas(0,0);
 		double centroY=0;
 		if(ecuacion1 instanceof EcuacionRecta){

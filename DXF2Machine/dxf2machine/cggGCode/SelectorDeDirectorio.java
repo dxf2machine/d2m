@@ -39,11 +39,7 @@ public class SelectorDeDirectorio extends JPanel implements ActionListener {
 		chooser.setCurrentDirectory(new java.io.File("."));
 		chooser.setDialogTitle(choosertitle);
 		chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-		//
-		// disable the "All files" option.
-		//
 		chooser.setAcceptAllFileFilterUsed(false);
-		//
 		if (chooser.showOpenDialog(chooser) == JFileChooser.APPROVE_OPTION) {
 			System.out.println("getCurrentDirectory(): "
 					+ chooser.getCurrentDirectory());
@@ -66,12 +62,4 @@ public class SelectorDeDirectorio extends JPanel implements ActionListener {
 
 	}
 
-	/*
-	 * public static void main(String s[]) { JFrame frame = new JFrame("");
-	 * SelectorDeDirectorio panel = new SelectorDeDirectorio();
-	 * frame.addWindowListener( new WindowAdapter() { public void
-	 * windowClosing(WindowEvent e) { System.exit(0); } } );
-	 * frame.getContentPane().add(panel,"Center");
-	 * frame.setSize(panel.getPreferredSize()); frame.setVisible(true); }
-	 */
 }

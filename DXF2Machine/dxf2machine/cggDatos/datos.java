@@ -1,19 +1,24 @@
-/*------------------------------------------------------------------------------------------ 
+/*--------------------------------------------------------------------------------------- 
 Copyright 2014, Celeste Gabriela Guagliano. 
 
 This file is part of DXF2Machine project. 
 
-DXF2Machine is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 2 of the License. 
+DXF2Machine is free software: you can redistribute it and/or modify it under the terms 
+of the GNU General Public License as published by the Free Software Foundation, either 
+version 2 of the License. 
 
-DXF2Machine is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. 
+DXF2Machine is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+See the GNU General Public License for more details. 
 
-You should have received a copy of the GNU General Public License along with DXF2Machine. If not, see <http://www.gnu.org/licenses/>.
-  --------------------------------------------------------------------------------------------*/
+You should have received a copy of the GNU General Public License along with DXF2Machine. 
+If not, see <http://www.gnu.org/licenses/>.
+-----------------------------------------------------------------------------------------*/
 
 
 package cggDatos;
 
-//import javax.swing.JTextArea;
+
 
 import cggGCode.GCode;
 
@@ -36,7 +41,7 @@ public class datos {
 	public boolean ubicado = false;
 	public int posicion = 0;
 	public int orientacion = 0;
-//	public JTextArea ventana = myDXF.GCode.VentanaGCodeJFrame.ventanaTexto;
+
 
 	public datos(double d, double e, double f, double g, int _color,
 			boolean ubicado, int posicion, int orientacion) {
@@ -56,7 +61,7 @@ public class datos {
 	 */
 	public String mecanizate() {
 		return null;
-		// TODO Auto-generated method stub
+	
 
 	}
 
@@ -72,7 +77,7 @@ public class datos {
 	 * @return a string.
 	 */
 	public String taladrate() {
-		// TODO Auto-generated method stub
+	
 		return null;
 	}
 
@@ -80,7 +85,7 @@ public class datos {
 	 * @return another entity.
 	 */
 	public datos compensate() {
-		// TODO Auto-generated method stub
+	
 		return null;
 	}
 	/** This method calculates the equation that defines an entity.
@@ -88,7 +93,7 @@ public class datos {
 	 * @return an equation.
 	 */
 	public EcuacionEntidad calculaTuEcuacion(double radioHerramienta) {
-		// TODO Auto-generated method stub
+	
 		return null;
 	}
 
@@ -99,7 +104,7 @@ public class datos {
 	 * @return an equation.
 	 */
 	public EcuacionEntidad compensaTuEcuacion(EcuacionEntidad ecuacion, double radioHerramienta, datos elemento) {
-		// TODO Auto-generated method stub
+	
 	
 		return null;
 	}
@@ -140,7 +145,7 @@ public class datos {
 	 * @return an equation.
 	 */
 	public EcuacionEntidad calculaTuEcuacionDesplazada(double radioHerramienta) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
@@ -149,7 +154,7 @@ public class datos {
 	 * @return an entity.
 	 */
 	public datos calculaTusCoordenadasCompensadas(double radioHerramienta) {
-		// TODO Auto-generated method stub
+	
 		return null;
 	}
 
@@ -160,7 +165,7 @@ public class datos {
 	 */
 	public Coordenadas ObtenerPuntoSobreRectaCompensada(double radioHerramienta,
 			EcuacionRecta original) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
@@ -169,7 +174,7 @@ public class datos {
 	 * @return an entity.
 	 */
 	public datos desplazateAlCentro(DatosCirculo centro) {
-		// TODO Auto-generated method stub
+	
 	return null;
 	}
 

@@ -34,20 +34,26 @@ public class TablaAgujeros {
 	public static Hashtable ListaAgujeros = new Hashtable();
 	public static int colorAgujeros = 3;
 
+	/**
+	 * Method to get a hole's list.
+	 * @return a hole's list.
+	 */
 	public static Hashtable ObtenerTablaAgujereado() {
 		Hashtable Lista= new Hashtable();
 		resetearTablas();
 		Lista = ColeccionFunciones.ObtenerSubconjunto(
 				Tabla.ListaEntidades, colorAgujeros);
 		ListaAgujeros=ColeccionFunciones.ObtenerCirculos(Lista);
-		// GCode.GenerarTaladrado(ListaAgujeros);
 		return ListaAgujeros;
 	}
 
+	/**
+	 * Method to reset the content of the list and the text area were the code is generated.
+	 */
 	public static void resetearTablas() {
 		ListaAgujeros.clear();
 		GCode.taladro.setText(" ");
 	}
-	// TODO Auto-generated method stub
+	
 
 }

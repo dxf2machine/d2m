@@ -56,11 +56,7 @@ public class DatosCirculo extends datos {
 }
     public EcuacionEntidad compensaTuEcuacion(EcuacionEntidad ecuacion,double radioHerramienta, datos elemento) {
 		EcuacionCircunferencia compensada=(EcuacionCircunferencia)ecuacion;
-	    //if(elemento.orientacion==0){
-		//	compensada.Radio=compensada.Radio-radioHerramienta;
-		//}else{
-			compensada.Radio=compensada.Radio+radioHerramienta;
-		//}
+	    compensada.Radio=compensada.Radio+radioHerramienta;
 		return compensada;
 	}
 
@@ -73,7 +69,6 @@ public class DatosCirculo extends datos {
 			if(ListaCentro.size()==1 && (ListaCentro.get(1) instanceof DatosCirculo) ){
 				centro=(DatosCirculo)ListaCentro.get(1);
 			}
-			// GCode.GenerarContorneado(ListaContorno);
 			return centro;
 	}
 	public DatosCirculo desplazateAlCentro(DatosCirculo centro) {

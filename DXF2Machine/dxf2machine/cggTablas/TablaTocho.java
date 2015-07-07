@@ -30,11 +30,18 @@ import cggGCode.GCode;
 public class TablaTocho {
 	public static Hashtable ListaTocho = new Hashtable();
 
+	/**
+	 * Method to reset the stock´s list and the text area were the code is generated.
+	 */
 	public static void resetearTablas() {
 		ListaTocho.clear();
 		GCode.plano.setText("");
 	}
 
+	/**
+	 * Method to get the stock list.
+	 * @return a stock list.
+	 */
 	public static Hashtable ObtenerTabla() {
 		resetearTablas();
 		return ListaTocho;

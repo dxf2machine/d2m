@@ -32,6 +32,11 @@ import cggDatos.Herramienta;
 public class TablaHerramientas {
 	static Hashtable TablaHerramientas = new Hashtable();
 
+	/**
+	 * Method to get the tool's list
+	 * @param herramientas is the tool's table.
+	 * @return a tool's list.
+	 */
 	public static Hashtable ObtenerTabla(JTable herramientas) {
 		for (int i = 1; i < 5; i++) {
 			double Numero = (double) herramientas.getValueAt(0, i);
@@ -46,9 +51,7 @@ public class TablaHerramientas {
 			TablaHerramientas.put(herramientas.getColumnName(i), dato);
 		}
 		return TablaHerramientas;
-
-		// TODO Auto-generated constructor stub
-	}
+		}
 	
 	 }
 

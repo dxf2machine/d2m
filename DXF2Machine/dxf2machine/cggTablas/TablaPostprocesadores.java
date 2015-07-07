@@ -24,14 +24,23 @@ import cggGCode.GCode;
  */ 
 public class TablaPostprocesadores {
 
+	/**
+	 * Method to get the post-processor's list.
+	 * @return a list of post-processors
+	 */
 	public static Hashtable ObtenerTabla() {
 		Hashtable postprocesadores = new Hashtable();
 		postprocesadores.put("Sinumerik 810/820M",
-				"myDXF.i18n.GCode_Sinumerik820");
-		postprocesadores.put("HAAS/FANUC", "myDXF.i18n.GCode_Hass");
+				"cggMaquinas.GCode_Sinumerik820");
+		postprocesadores.put("HAAS/FANUC", "cggMaquinas.GCode_Hass");
 		return postprocesadores;
 	}
 
+	/**
+	 * Method to get the selected post-processor
+	 * @param postprocesador is the key of the post-processor.
+	 * @return a post-processor.
+	 */
 	public static String ObtenerPostprocesador(String postprocesador) {
 		String parametro = null;
 		Hashtable maquinas = ObtenerTabla();

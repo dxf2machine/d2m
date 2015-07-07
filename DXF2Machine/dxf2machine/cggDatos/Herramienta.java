@@ -37,7 +37,6 @@ public class Herramienta {
 		this.Pasada = pasa;
 		this.Zseguro=zseg;
 		this.Zcambio=zcam;
-		// TODO Auto-generated constructor stub
 	}
 
 }

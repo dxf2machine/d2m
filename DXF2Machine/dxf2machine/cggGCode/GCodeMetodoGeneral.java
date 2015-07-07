@@ -32,14 +32,22 @@ public class GCodeMetodoGeneral extends GCode {
 	String nume=null;
 	double profundidad=0;
 	String RapidoZ;
+	
+	/**
+	 * Method to generate the general translation of features.
+	 * @param lista is the list of entities.
+	 * @param rasgo is the text area were the code is generated.
+	 * @param pasada is the partial depth of the contouring.
+	 * @param repeticiones is the number of times that the subprogram must be called if the code is generated in a subprogram.
+	 * @param herramienta is the tool involved in the process.
+	 */
 	public JTextArea mecanizarLista(Hashtable lista, JTextArea rasgo,
-			double pasada, int P, Herramienta herramienta) {
-		profundidad=inicializarProfundidad(profundidad,pasada);
+			double pasada, int repeticiones, Herramienta herramienta) {
+		profundidad=inicializarProfundidad(pasada);
 		double zsafe=herramienta.Zseguro;
-		if(P>0){
-			//nume = incrementarLinea(++nroLineaSubprog);
+		if(repeticiones>0){
 			rasgo.append(coordenadaAbsoluta);
-			for (int i = 1; i <= lista.size(); i++) {// chequeo con la coordenada anterior si hay continuidad,si no la hay salto a la siguiente)
+			for (int i = 1; i <= lista.size(); i++) {
 				datos elemento1 = (datos) lista.get(i - 1);
 				datos elemento2 = (datos) lista.get(i);
 				boolean continuidad = true;
@@ -47,8 +55,7 @@ public class GCodeMetodoGeneral extends GCode {
 					continuidad = ColeccionFunciones.compartenCoordenada(
 							elemento1, elemento2);
 				}
-				//nume = incrementarLinea(++nroLineaSubprog);
-				if (continuidad == true) {
+			  if (continuidad == true) {
 					String linea = elemento2.mecanizate();
 					linea=linea+("\r\n");
 					rasgo.append(linea);
@@ -56,22 +63,17 @@ public class GCodeMetodoGeneral extends GCode {
 				} else {
 					String RapidoZ=avanceRapidoZ.replace("z", Double.toString(zsafe));
 					rasgo.append(RapidoZ);
-					//nume = incrementarLinea(++nroLineaSubprog);
 					String salto = elemento2.saltarASiguiente();
 					rasgo.append(salto);
-					//nume = incrementarLinea(++nroLineaSubprog);
 					String linea=avanceLinealZ.replace("z",Double.toString(profundidad));
 					rasgo.append(linea);
-					//nume = incrementarLinea(++nroLineaSubprog);
 					linea = elemento2.mecanizate();
 					linea=linea+("\r\n");
 					rasgo.append(linea);
 				}
 			}
-			//nume = incrementarLinea(++nroLineaSubprog);
 			rasgo.append(RapidoZ);
-			if (P > 1) {
-				//nume = incrementarLinea(++nroLineaSubprog);
+			if (repeticiones > 1) {
 				String linea=avanceRapidoZ.replace("z", Double.toString(zsafe));
 				rasgo.append(linea);
 				datos elemento = (datos) lista.get(1);
@@ -79,20 +81,22 @@ public class GCodeMetodoGeneral extends GCode {
 				linea=avanceRapido.replace("x",Double.toString(iniciales.x));
 				linea=linea.replace("y", Double.toString(iniciales.y));
 				rasgo.append(linea);
-				//nume = incrementarLinea(++nroLineaSubprog);
 				profundidad=profundidad-pasada;
 				linea=avanceLinealZ.replace("z", Double.toString(profundidad));
 				rasgo.append(linea);
 				}
 			
-			mecanizarLista(lista,rasgo,pasada,--P,herramienta);
+			mecanizarLista(lista,rasgo,pasada,--repeticiones,herramienta);
 		}
 		return rasgo;
 	}
 	
-	
-	private double inicializarProfundidad(double profundidad2, double pasada) {
-		// TODO Auto-generated method stub
+	/**
+	 * Method to get the first depth of the process
+	 * @param pasada is the partial depth of the feature.
+	 * @return the first depth.
+	 */
+	private double inicializarProfundidad(double pasada) {
 		if(profundidad==0){
 			profundidad-=pasada;
 		}
