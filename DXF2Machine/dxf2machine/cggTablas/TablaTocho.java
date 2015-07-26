@@ -31,7 +31,7 @@ public class TablaTocho {
 	public static Hashtable ListaTocho = new Hashtable();
 
 	/**
-	 * Method to reset the stock´s list and the text area were the code is generated.
+	 * Method to reset the stock's list and the text area were the code is generated.
 	 */
 	public static void resetearTablas() {
 		ListaTocho.clear();

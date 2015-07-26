@@ -156,7 +156,7 @@ public abstract class myEntity {
 		if (c < 0)
 			c = DXF_Color.getDefaultColorIndex();
 
-		// Gestion de la couleur en fonction de la couleur de fond d'écran
+	
 		try {
 			if (DXF_Color.getColor(c).equals(myUnivers._bgColor)) {
 				if (myUnivers._bgColor.equals(Color.WHITE))

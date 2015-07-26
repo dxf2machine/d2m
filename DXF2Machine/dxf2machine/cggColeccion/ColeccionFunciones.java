@@ -102,7 +102,6 @@ public class ColeccionFunciones {
 	 */
 	private static int SeleccionarUnInicial(Hashtable iniciales,
 			Coordenadas comparativa, Hashtable lista) {
-		// TODO Teniendo una lista de posibles entidades iniciales, este metodo aplica un criterio de selección para decidir cual es el inicial que se utiliza. 
 		datos elemento = null;
 		if (iniciales.size() > 1) {
 			Coordenadas coinciden = new Coordenadas(0, 0);
@@ -111,35 +110,11 @@ public class ColeccionFunciones {
 			double alfa2 = 0;
 			datos elemento1 = (datos) iniciales.get(1);
 			datos elemento2 = (datos) iniciales.get(2);
-			double x1 = elemento1.ComienzoX;
-			double y1 = elemento1.ComienzoY;
-			double x2 = elemento2.ComienzoX;
-			double y2 = elemento2.ComienzoY;
-			if (x1 == coinciden.x && y1 == coinciden.y) {
-				x1 = elemento1.FinalX;
-				y1 = elemento1.FinalY;
+			elemento=OrientarElementoInicial(elemento1);
 			} else {
-				elemento1.orientacion = -1;
-			}
-			if (x2 == coinciden.x && y2 == coinciden.y) {
-				x2 = elemento2.FinalX;
-				y2 = elemento2.FinalY;
-			} else {
-				elemento2.orientacion = -1;
-			}
-			double Xmin = comparativa.x;
-			double Ymin = comparativa.y;
-			alfa1 = Math.atan((y1 - Ymin) / (x1 - Xmin));
-			alfa2 = Math.atan((y2 - Ymin) / (x2 - Xmin));
-			if (alfa2 < alfa1) {
-				elemento = elemento1;
-			} else {
-				elemento = elemento2;
-			}
-
-		} else {
 			elemento = (datos) iniciales.get(1);
-			elemento = ComprobarOrdenCoordenada(elemento, comparativa);
+			//elemento = ComprobarOrdenCoordenada(elemento, comparativa);
+			elemento=OrientarElementoInicial(elemento);
 		}
 		int clave = 0;
 		for (Enumeration k = lista.keys(); k.hasMoreElements();) {
@@ -149,6 +124,7 @@ public class ColeccionFunciones {
 				clave = llave;
 			}
 		}
+		
 		return clave;
 	}
 
@@ -161,8 +137,6 @@ public class ColeccionFunciones {
 	
 	private static datos ComprobarOrdenCoordenada(datos elemento,
 			Coordenadas comparativa) {
-		//TODO Este método decide si la entidad en cuestión se encuentra orientada en forma directa o inversa
-		// es decir, si sus coordenadas iniciales son las correctas en el conjunto o debe tomarse sus coordenadas finales como iniciales y viceversa.
 		double x1 = elemento.ComienzoX;
 		double y1 = elemento.ComienzoY;
 		double x2 = elemento.FinalX;
@@ -184,7 +158,7 @@ public class ColeccionFunciones {
 	 * @return the matched coordinate. 
 	 */
 	private static Coordenadas ObtenerCoincidente(Hashtable iniciales) {
-		//TODO Este método compara las coordenas de dos entidades y obtiene un par coincidente.
+	
 		Coordenadas coincidentes = new Coordenadas(0, 0);
 		datos elemento1 = (datos) iniciales.get(1);
 		datos elemento2 = (datos) iniciales.get(2);
@@ -221,7 +195,7 @@ public class ColeccionFunciones {
 	 */
 	private static Hashtable MinimaDistancia(Hashtable lista,
 			Coordenadas comparativa) {
-		//TODO Este método recibe una lista de entidades y calcula cual es la entidad que posee un par de coordenadas de distancia minima a un punto de referencia dado.
+	
 		Hashtable elementosIniciales = new Hashtable();
 		datos inicial1 = null;
 		for (Enumeration e = lista.keys(); e.hasMoreElements();) {
@@ -262,8 +236,7 @@ public class ColeccionFunciones {
 	 * @return true if there's a coincidence, false otherwise. 
 	 */
 		private static boolean compararEntidades(datos inicial1, datos inicial2) {
-		//TODO Este metodo compara entidades para saber si comparten un punto, es decir un par de coordenadas.
-		//mal puesto el nombre, debería ser "compararCoordenadasEntidades" o algo similar.
+		
 		double x1 = inicial1.ComienzoX;
 		double x2 = inicial2.ComienzoX;
 		double y1 = inicial1.ComienzoY;
@@ -301,8 +274,7 @@ public class ColeccionFunciones {
 		 */
 		private static double CalcularDistanciaAReferencia(Coordenadas comparativa,
 			datos inicial1) {
-		//TODO Este método calcula la distancia entre un par de coordenadas y un punto de referencia, 
-		//compara el valor obtenido calculando con la coordenada inicial y final de la entidad y devuelve el menor.
+	
 		double x1 = inicial1.ComienzoX;
 		double y1 = inicial1.ComienzoY;
 		double x2 = inicial1.FinalX;
@@ -395,8 +367,6 @@ public class ColeccionFunciones {
 	 */
 	private static Hashtable ObtenerSiguienteElemento(Hashtable ordenados,
 			Hashtable listaContorno) {
-		//TODO Este método toma el último valor de la tabla de elementos ordenados, busca el siguiente en la tabla no ordenada según el criterio de ordenamiento
-		// lo coloca en la tabla ordenada y lo saca de la tabla original.
 		do {
 			datos elemento = ComprobarCoordenadaInicial(ordenados,
 					listaContorno);
@@ -469,7 +439,7 @@ public class ColeccionFunciones {
 	 */
 	private static boolean CompararCoordenadas(Coordenadas dato1,
 			Coordenadas dato2) {
-	//TODO comprueba si un par de coordenadas coinciden, si es así devuelve true, caso contrario devuelve false.
+	
 		boolean coincidencia = false;
 		if (dato1.x == dato2.x && dato1.y == dato2.y) {
 			coincidencia = true;
@@ -484,7 +454,7 @@ public class ColeccionFunciones {
 	 */
 	private static datos ComprobarCoordenadaInicial(Hashtable ordenados,
 			Hashtable listaContorno) {
-		//TODO Chequea si la coordenada final del ultimo elemento de la tabla ordenada coincide con la coordenada inicial de algun elemento de la tabla original.
+	
 		datos elemento = null;
 		boolean elementoEncontrado = false;
 		Coordenadas FinalUltimoElementoOrdenado = ObtenerCoordenadaFinal(ordenados);
@@ -510,7 +480,7 @@ public class ColeccionFunciones {
 	 * @return true if the contour is closed, false otherwise.
 	 */
 	 public static boolean EvaluarContornoCerrado(Hashtable listaContornoOrdenada) {
-		// TODO Evalúa si hay continuidad entre los elementos de la tabla, es decir que todos los elementos se toquen entre si, incluyendo el ultimo con el primero.
+		
 		Coordenadas iniciales = new Coordenadas(0, 0);
 		Coordenadas finales = new Coordenadas(0, 0);
 		int clave = 1;
@@ -541,7 +511,7 @@ public class ColeccionFunciones {
 	 */
 		 
 	public static Hashtable OrientarContornoCerrado(Hashtable listaOrdenada) {
-		//TODO revisa la orientación de los elementos ordenados en la tabla y la corrije si es necesario.
+	
 		int clave = 1;
 		if(listaOrdenada.size()>1){
 		do {
@@ -556,10 +526,31 @@ public class ColeccionFunciones {
 		return listaOrdenada;
 	}
 
-/*	private static datos OrientarElementoFinal(datos elemento1, datos elemento2) {
-		// TODO Auto-generated method stub
-		return null;
-	}*/
+	/**
+	 * 
+	 * @param elemento1
+	 * @param inicial
+	 * @return
+	 */
+    private static datos OrientarElementoInicial(datos elemento1){
+    double x1=elemento1.ComienzoX;
+    double x2=elemento1.FinalX;
+    double y1=elemento1.ComienzoY;
+    double y2=elemento1.FinalY;
+    if(y1>y2){
+    		elemento1.orientacion=-1;
+    	    }
+    else{
+    	if (y1==y2){
+    		if(x1<x2){
+    			elemento1.orientacion=-1;
+    		}
+    		}else{
+    			elemento1.orientacion=0;
+    		}
+    	}
+    return elemento1;	
+    }
 
 	/** Method to orientate an element using another element as a criterion.
 	 * @param elemento1 the element to be oriented
@@ -594,7 +585,7 @@ public class ColeccionFunciones {
 	 */
 	private static Coordenadas ObtenerCoordenadaFinal(
 			Hashtable listaContornoOrdenada) {
-		//TODO Devuelve la coordenada final de un elemento teniendo en cuenta su orientación.
+	
 		Coordenadas coordFinales = new Coordenadas(0, 0);
 		datos elementoFinal = (datos) listaContornoOrdenada
 				.get(listaContornoOrdenada.size());
@@ -820,7 +811,8 @@ public class ColeccionFunciones {
 
 	}
 
-	/** This method checks the orientation of an entity and returns the final point.
+	/** 
+	 * This method checks the orientation of an entity and returns the final point.
 	 * @param inicial is the representation of an entity
 	 * @return a point.
 	 */
@@ -836,7 +828,9 @@ public class ColeccionFunciones {
 					}
 		return finales;
 	}
-	/** This method checks the orientation of an entity and returns the beginning point.
+	
+	/** 
+	 * This method checks the orientation of an entity and returns the beginning point.
 	 * @param inicial is the representation of an entity
 	 * @return a point.
 	 */
@@ -853,7 +847,8 @@ public class ColeccionFunciones {
 		return iniciales;
 	}
 
-	/** This method checks if an entity is a circle and returns it's center.
+	/** 
+	 * This method checks if an entity is a circle and returns it's center.
 	 * @param datos is the representation of an entity
 	 * @return a point.
 	 */
@@ -866,7 +861,8 @@ public class ColeccionFunciones {
 		return centro;
 	}
 
-	/** This method collect the circles of a list.
+	/** 
+	 * This method collect the circles of a list.
 	 * @param lista is a list of entities.
 	 * @return a list of circles.
 	 */

@@ -238,7 +238,7 @@ public class compensacionContorno {
 		private static Coordenadas intersectarRectaConArcoCasoGeneral(
 			EcuacionRecta ecuacion1, EcuacionCircunferencia ecuacion2,
 			Coordenadas interseccionArcoOriginal) {
-			JOptionPane.showMessageDialog(null, "Lo siento, la versión actual no permite generar el contorneado seleccionado", "Error", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Lo siento, la versiÃ³n actual no permite generar el contorneado seleccionado", "Error", JOptionPane.ERROR_MESSAGE);
 			return null;
 	}
 
@@ -350,7 +350,7 @@ public class compensacionContorno {
 		 */
 	public static Coordenadas intersectarArcos(EcuacionCircunferencia ecuacion1,
 			EcuacionCircunferencia ecuacion2, DatosArcos elemento1, DatosArcos elemento2) {
-			JOptionPane.showMessageDialog(null, "Lo siento, la versión actual no permite generar el contorneado seleccionado", "Error", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Lo siento, la versiÃ³n actual no permite generar el contorneado seleccionado", "Error", JOptionPane.ERROR_MESSAGE);
 			return null;
 	}
 
