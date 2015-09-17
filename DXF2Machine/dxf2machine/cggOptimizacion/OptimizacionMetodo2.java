@@ -14,7 +14,6 @@ package cggOptimizacion;
 
 import java.util.Hashtable;
 
-import cggColeccion.ColeccionFunciones;
 import cggDatos.Coordenadas;
 import cggDatos.DatosArcos;
 import cggDatos.DatosLinea;
@@ -23,6 +22,7 @@ import cggDatos.EcuacionEntidad;
 import cggDatos.EcuacionRecta;
 import cggDatos.datos;
 import cggGCode.compensacionContorno;
+import d2mColeccion.ColeccionFunciones;
 
 /**
  * This class implements an algorithm of optimization for lists.

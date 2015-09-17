@@ -14,7 +14,7 @@ package cggOptimizacion;
 
 import java.util.Hashtable;
 
-import cggColeccion.ColeccionFunciones;
+import d2mColeccion.ColeccionFunciones;
 
 /**
  * This class implements an algorithm of optimization for lists.

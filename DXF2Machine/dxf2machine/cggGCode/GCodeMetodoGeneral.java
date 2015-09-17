@@ -16,10 +16,10 @@ import java.util.Hashtable;
 
 import javax.swing.JTextArea;
 
-import cggColeccion.ColeccionFunciones;
 import cggDatos.Coordenadas;
 import cggDatos.Herramienta;
 import cggDatos.datos;
+import d2mColeccion.ColeccionFunciones;
 
 /**
  * This class implements the necessary algorithms to generate the G-Code from any list of entities.  

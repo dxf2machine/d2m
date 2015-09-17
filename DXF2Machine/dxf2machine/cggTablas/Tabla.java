@@ -22,13 +22,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 
-import cggColeccion.ColeccionFunciones;
 import cggDatos.DatosCirculo;
 import cggDatos.datos;
 import cggGCode.GCode;
 import cggGCode.GCodeMetodoContorneado;
 import cggGCode.GCodeMetodoGeneral;
 import cggGCode.GCodeMetodoTaladrado;
+import d2mColeccion.ColeccionFunciones;
 import myDXF.DXF_Loader;
 //import myDXF.GCode.areaTexto;
 import myDXF.Graphics.myCanvas;

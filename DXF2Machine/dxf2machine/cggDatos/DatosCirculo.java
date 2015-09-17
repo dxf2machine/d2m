@@ -14,10 +14,10 @@ package cggDatos;
 
 import java.util.Hashtable;
 
-import cggColeccion.ColeccionFunciones;
 import cggGCode.GCode;
 import cggGCode.compensacionContorno;
 import cggTablas.Tabla;
+import d2mColeccion.ColeccionFunciones;
 
 /**
  * This class defines the structure of DatosCirculo.

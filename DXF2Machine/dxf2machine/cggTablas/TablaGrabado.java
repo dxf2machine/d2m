@@ -18,9 +18,9 @@ import java.util.Hashtable;
 
 import javax.swing.JTextArea;
 
-import cggColeccion.ColeccionFunciones;
 import cggDatos.datos;
 import cggGCode.GCode;
+import d2mColeccion.ColeccionFunciones;
 
 /**
  * This class access the general table of entities of DXF2Machine and collect the entities matching a color code in a new table.

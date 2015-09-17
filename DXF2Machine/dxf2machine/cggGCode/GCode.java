@@ -26,7 +26,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 
-import cggColeccion.*;
 import cggDatos.Coordenadas;
 import cggDatos.DatosArcos;
 import cggDatos.DatosCirculo;
@@ -40,6 +39,7 @@ import cggTablas.TablaAgujeros;
 import cggTablas.TablaContorno;
 import cggTablas.TablaGrabado;
 import cggTablas.TablaTocho;
+import d2mColeccion.*;
 import myDXF.DXF_Loader;
 /**
  * This class implements the necessary algorithms to translate all the collected data into G-Code  

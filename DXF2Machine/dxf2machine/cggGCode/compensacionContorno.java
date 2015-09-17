@@ -18,7 +18,6 @@ import java.util.Hashtable;
 
 import javax.swing.JOptionPane;
 
-import cggColeccion.ColeccionFunciones;
 import cggDatos.Coordenadas;
 import cggDatos.DatosArcos;
 import cggDatos.DatosCirculo;
@@ -30,6 +29,7 @@ import cggDatos.FormatoNumeros;
 import cggDatos.Herramienta;
 import cggDatos.datos;
 import cggOptimizacion.OptimizacionMetodo2;
+import d2mColeccion.ColeccionFunciones;
 
 /**
  * This class implements the necessary algorithms to calculate a new contour compensating the radius of the selected tool to operate.  

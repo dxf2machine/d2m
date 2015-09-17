@@ -17,9 +17,9 @@ import java.util.Hashtable;
 
 import javax.swing.JTextArea;
 
-import cggColeccion.ColeccionFunciones;
 import cggDatos.datos;
 import cggGCode.GCode;
+import d2mColeccion.ColeccionFunciones;
 
 /**
  * This class resets the stock table.

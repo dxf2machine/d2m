@@ -15,7 +15,7 @@ You should have received a copy of the GNU General Public License along with DXF
 If not, see <http://www.gnu.org/licenses/>.
   ----------------------------------------------------------------------------------------*/
 
-package cggColeccion;
+package d2mColeccion;
 
 
 import java.text.DecimalFormat;

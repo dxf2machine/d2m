@@ -13,9 +13,9 @@ You should have received a copy of the GNU General Public License along with DXF
 package cggDatos;
 
 
-import cggColeccion.ColeccionFunciones;
 import cggGCode.GCode;
 import cggGCode.compensacionContorno;
+import d2mColeccion.ColeccionFunciones;
 
 /**
  * This class defines the structure of DatosLinea
