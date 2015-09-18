@@ -15,6 +15,8 @@ See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with DXF2Machine. 
 If not, see <http://www.gnu.org/licenses/>.
+
+For more information, contact us at: dxf2machine@gmail.com
   ---------------------------------------------------------------------------------------*/
 
 /*
@@ -125,9 +127,9 @@ import javax.swing.event.ChangeListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 
-import cggGCode.GCode;
-import cggGCode.SelectorDeDirectorio;
-import cggTablas.Tabla;
+import d2mGCode.GCode;
+import d2mGCode.SelectorDeDirectorio;
+import d2mTablas.Tabla;
 import myDXF.Graphics.myCanvas;
 import myDXF.Graphics.myCoord;
 import myDXF.Graphics.myHistory;
@@ -145,7 +147,7 @@ import myDXF.Header.myTable;
 /**
  * This class is the main class of the DXF2Machine project
  * @author: Stephan Soulard, Edouard Vanhauwaert
- * @version: 28/03/15 by Celeste Guagliano
+ * @version: 0.0.1 by Celeste Guagliano
  * 
  */ 
 public class DXF_Loader extends JPanel implements ActionListener {

@@ -15,6 +15,8 @@ See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with DXF2Machine. 
 If not, see <http://www.gnu.org/licenses/>.
+
+For more information, contact us at: dxf2machine@gmail.com
   ---------------------------------------------------------------------------------------*/
 
 /*
@@ -26,8 +28,8 @@ If not, see <http://www.gnu.org/licenses/>.
 /*
  * modification history (new versions first)
  * -----------------------------------------------------------
- * 20141002 v0.0.3 CeGu add obtenerDatos() method
- * 20141002 v0.0.2 CeGu improve draw() method
+ * 20141002 v0.0.1 CeGu add obtenerDatos() method
+ * 20141002 v0.0.1 CeGu improve draw() method
  * 20140828 v0.0.1 CeGu fork from DXF project
 
 */    
@@ -45,10 +47,10 @@ import java.util.Vector;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 
-import cggDatos.DatosArcos;
-import cggDatos.FormatoNumeros;
-import cggDatos.datos;
-import cggTablas.Tabla;
+import d2mDatos.DatosArcos;
+import d2mDatos.FormatoNumeros;
+import d2mDatos.datos;
+import d2mTablas.Tabla;
 import myDXF.DXF_Loader;
 import myDXF.myUnivers;
 import myDXF.Graphics.myCoord;
@@ -62,7 +64,7 @@ import myDXF.Header.myTable;
 /**
  * This class to manage the arc's data
  * @author: Stephan Soulard, Edouard Vanhauwaert
- * @version: 13/01/15 by Celeste Guagliano
+ * @version: 0.0.1 by Celeste Guagliano
  * 
  */ 
 public class myArc extends myEntity {

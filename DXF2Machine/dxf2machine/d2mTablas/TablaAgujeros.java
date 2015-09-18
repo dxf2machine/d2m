@@ -8,9 +8,11 @@ DXF2Machine is free software: you can redistribute it and/or modify it under the
 DXF2Machine is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. 
 
 You should have received a copy of the GNU General Public License along with DXF2Machine. If not, see <http://www.gnu.org/licenses/>.
+
+For more information, contact us at: dxf2machine@gmail.com
   --------------------------------------------------------------------------------------------*/
 
-package cggTablas;
+package d2mTablas;
 
 import java.util.Enumeration;
 import java.util.Hashtable;
@@ -18,15 +20,15 @@ import java.util.Hashtable;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
-import cggDatos.DatosCirculo;
-import cggDatos.datos;
-import cggGCode.GCode;
 import d2mColeccion.ColeccionFunciones;
+import d2mDatos.DatosCirculo;
+import d2mDatos.datos;
+import d2mGCode.GCode;
 
 /**
  * This class access the general table of entities of DXF2Machine and collect the entities matching a color code in a new table.
  * @author: Celeste G. Guagliano
- * @version: 13/01/15
+ * @version: 0.0.1
  * 
  */ 
 

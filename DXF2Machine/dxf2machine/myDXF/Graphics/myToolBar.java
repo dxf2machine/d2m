@@ -15,6 +15,8 @@ See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with DXF2Machine. 
 If not, see <http://www.gnu.org/licenses/>.
+
+For more information, contact us at: dxf2machine@gmail.com
   ---------------------------------------------------------------------------------------*/
 
 /*
@@ -26,7 +28,7 @@ If not, see <http://www.gnu.org/licenses/>.
 /*
  * modification history (new versions first)
  * -----------------------------------------------------------
- * 20150113 v0.0.2 CeGu modified myToolbar class
+ * 20150113 v0.0.1 CeGu modified myToolbar class
  * 20140428 v0.0.1 CeGu fork from DXF project
 
 */    

@@ -13,6 +13,8 @@ See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with DXF2Machine. 
 If not, see <http://www.gnu.org/licenses/>.
+
+For more information, contact us at: dxf2machine@gmail.com
   ----------------------------------------------------------------------------------------*/
 
 package d2mColeccion;
@@ -25,18 +27,18 @@ import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Iterator;
 
-import cggDatos.Coordenadas;
-import cggDatos.DatosCirculo;
-import cggDatos.DatosLinea;
-import cggDatos.FormatoNumeros;
-import cggDatos.Herramienta;
-import cggDatos.datos;
+import d2mDatos.Coordenadas;
+import d2mDatos.DatosCirculo;
+import d2mDatos.DatosLinea;
+import d2mDatos.FormatoNumeros;
+import d2mDatos.Herramienta;
+import d2mDatos.datos;
 import myDXF.DXF_Loader;
 
 /**
  * This class defines util methods for colections.
  * @author: Celeste G. Guagliano
- * @version: 13/01/15
+ * @version: 0.0.1
  * 
  */ 
 

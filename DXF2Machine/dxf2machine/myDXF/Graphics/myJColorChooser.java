@@ -15,6 +15,8 @@ See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with DXF2Machine. 
 If not, see <http://www.gnu.org/licenses/>.
+
+For more information, contact us at: dxf2machine@gmail.com
   ---------------------------------------------------------------------------------------*/
 
 /*
@@ -26,8 +28,8 @@ If not, see <http://www.gnu.org/licenses/>.
 /*
  * modification history (new versions first)
  * -----------------------------------------------------------
- * 20150113 v0.0.2 CeGu improve actionPerformed() method
- * 20150113 v0.0.2 CeGu improve myJColorChooser() method
+ * 20150113 v0.0.1 CeGu improve actionPerformed() method
+ * 20150113 v0.0.1 CeGu improve myJColorChooser() method
  * 20140428 v0.0.1 CeGu fork from DXF project
 
 */    
@@ -49,14 +51,14 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import cggGCode.SelectorDeDirectorio;
-import cggTablas.Tabla;
+import d2mGCode.SelectorDeDirectorio;
+import d2mTablas.Tabla;
 import myDXF.DXF_Loader;
 
 /**
  * This class generate a Color Chooser.
  * @author: Stephan Soulard, Edouard Vanhauwaert.
- * @version: 13/01/15 by Celeste Guagliano
+ * @version: 0.0.1 by Celeste Guagliano
  * 
  */ 
 public class myJColorChooser extends JPanel implements ActionListener {

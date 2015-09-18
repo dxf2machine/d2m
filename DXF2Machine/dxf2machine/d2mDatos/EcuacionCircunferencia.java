@@ -8,42 +8,32 @@ DXF2Machine is free software: you can redistribute it and/or modify it under the
 DXF2Machine is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. 
 
 You should have received a copy of the GNU General Public License along with DXF2Machine. If not, see <http://www.gnu.org/licenses/>.
+
+For more information, contact us at: dxf2machine@gmail.com
   --------------------------------------------------------------------------------------------*/
 
-package cggTablas;
-
-import java.util.Enumeration;
-import java.util.Hashtable;
-
-import javax.swing.JTextArea;
-
-import cggDatos.datos;
-import cggGCode.GCode;
-import d2mColeccion.ColeccionFunciones;
+package d2mDatos;
 
 /**
- * This class resets the stock table.
+ * This class defines the structure of EcuacionCircunferencia.
+ * EcuacionCircunferencia is a data structure that stores the parameters of the equation of a given circle.
  * @author: Celeste G. Guagliano
- * @version: 13/01/15
+ * @version: 0.0.1
  * 
  */ 
-public class TablaTocho {
-	public static Hashtable ListaTocho = new Hashtable();
 
-	/**
-	 * Method to reset the stock's list and the text area were the code is generated.
-	 */
-	public static void resetearTablas() {
-		ListaTocho.clear();
-		GCode.plano.setText("");
-	}
+public class EcuacionCircunferencia extends EcuacionEntidad{
+	public double centroX;  
+	public double centroY;  
+	public double Radio;
+	
 
-	/**
-	 * Method to get the stock list.
-	 * @return a stock list.
-	 */
-	public static Hashtable ObtenerTabla() {
-		resetearTablas();
-		return ListaTocho;
-	}
+	public EcuacionCircunferencia(double cx, double cy,double r) {
+			this.centroX = cx;
+			this.centroY = cy;
+			this.Radio = r;
+	
+		}
+	
+	
 }

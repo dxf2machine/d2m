@@ -13,20 +13,22 @@ See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with DXF2Machine. 
 If not, see <http://www.gnu.org/licenses/>.
+
+For more information, contact us at: dxf2machine@gmail.com
 -----------------------------------------------------------------------------------------*/
 
 
-package cggDatos;
+package d2mDatos;
 
 
 
-import cggGCode.GCode;
+import d2mGCode.GCode;
 
 /**
  * This class defines the structure of datos and it's methods.
  * datos is a data structure that store the basic data of any entity.
  * @author: Celeste G. Guagliano
- * @version: 13/01/15
+ * @version: 0.0.1
  * 
  */ 
 

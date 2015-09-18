@@ -8,18 +8,20 @@ DXF2Machine is free software: you can redistribute it and/or modify it under the
 DXF2Machine is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. 
 
 You should have received a copy of the GNU General Public License along with DXF2Machine. If not, see <http://www.gnu.org/licenses/>.
+
+For more information, contact us at: dxf2machine@gmail.com
   --------------------------------------------------------------------------------------------*/
 
-package cggTablas;
+package d2mTablas;
 
 import java.util.Hashtable;
 
-import cggGCode.GCode;
+import d2mGCode.GCode;
 
 /**
  * This class generate a table of admitted postprocessors.
  * @author: Celeste G. Guagliano
- * @version: 13/01/15
+ * @version: 0.0.1
  * 
  */ 
 public class TablaPostprocesadores {
@@ -31,8 +33,8 @@ public class TablaPostprocesadores {
 	public static Hashtable ObtenerTabla() {
 		Hashtable postprocesadores = new Hashtable();
 		postprocesadores.put("Sinumerik 810/820M",
-				"cggMaquinas.GCode_Sinumerik820");
-		postprocesadores.put("HAAS/FANUC", "cggMaquinas.GCode_Hass");
+				"d2mMaquinas.GCode_Sinumerik820");
+		postprocesadores.put("HAAS/FANUC", "d2mMaquinas.GCode_Hass");
 		return postprocesadores;
 	}
 

@@ -8,27 +8,29 @@ DXF2Machine is free software: you can redistribute it and/or modify it under the
 DXF2Machine is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. 
 
 You should have received a copy of the GNU General Public License along with DXF2Machine. If not, see <http://www.gnu.org/licenses/>.
+
+For more information, contact us at: dxf2machine@gmail.com
   --------------------------------------------------------------------------------------------*/
 
-package cggOptimizacion;
+package d2mOptimizacion;
 
 import java.util.Hashtable;
 
-import cggDatos.Coordenadas;
-import cggDatos.DatosArcos;
-import cggDatos.DatosLinea;
-import cggDatos.EcuacionCircunferencia;
-import cggDatos.EcuacionEntidad;
-import cggDatos.EcuacionRecta;
-import cggDatos.datos;
-import cggGCode.compensacionContorno;
 import d2mColeccion.ColeccionFunciones;
+import d2mDatos.Coordenadas;
+import d2mDatos.DatosArcos;
+import d2mDatos.DatosLinea;
+import d2mDatos.EcuacionCircunferencia;
+import d2mDatos.EcuacionEntidad;
+import d2mDatos.EcuacionRecta;
+import d2mDatos.datos;
+import d2mGCode.compensacionContorno;
 
 /**
  * This class implements an algorithm of optimization for lists.
  * This kind of optimization receives a list, sort the items in a new list, check if they form a closed loop, calculates the offset entities and returns the optimized list. 
  * @author: Celeste G. Guagliano
- * @version: 13/01/15
+ * @version: 0.0.1
  * 
  */ 
 public class OptimizacionMetodo2 extends Optimizacion {

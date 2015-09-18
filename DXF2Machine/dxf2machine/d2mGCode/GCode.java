@@ -8,9 +8,11 @@ DXF2Machine is free software: you can redistribute it and/or modify it under the
 DXF2Machine is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. 
 
 You should have received a copy of the GNU General Public License along with DXF2Machine. If not, see <http://www.gnu.org/licenses/>.
+
+For more information, contact us at: dxf2machine@gmail.com
   --------------------------------------------------------------------------------------------*/
 
-package cggGCode;
+package d2mGCode;
 
 import java.awt.Color;
 import java.io.BufferedWriter;
@@ -26,25 +28,25 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 
-import cggDatos.Coordenadas;
-import cggDatos.DatosArcos;
-import cggDatos.DatosCirculo;
-import cggDatos.DatosLinea;
-import cggDatos.FormatoNumeros;
-import cggDatos.Herramienta;
-import cggDatos.datos;
-import cggOptimizacion.*;
-import cggTablas.Tabla;
-import cggTablas.TablaAgujeros;
-import cggTablas.TablaContorno;
-import cggTablas.TablaGrabado;
-import cggTablas.TablaTocho;
 import d2mColeccion.*;
+import d2mDatos.Coordenadas;
+import d2mDatos.DatosArcos;
+import d2mDatos.DatosCirculo;
+import d2mDatos.DatosLinea;
+import d2mDatos.FormatoNumeros;
+import d2mDatos.Herramienta;
+import d2mDatos.datos;
+import d2mOptimizacion.*;
+import d2mTablas.Tabla;
+import d2mTablas.TablaAgujeros;
+import d2mTablas.TablaContorno;
+import d2mTablas.TablaGrabado;
+import d2mTablas.TablaTocho;
 import myDXF.DXF_Loader;
 /**
  * This class implements the necessary algorithms to translate all the collected data into G-Code  
  * @author: Celeste G. Guagliano
- * @version: 13/01/15
+ * @version: 0.0.1
  * 
  */ 
 

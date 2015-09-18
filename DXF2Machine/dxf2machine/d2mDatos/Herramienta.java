@@ -8,10 +8,37 @@ DXF2Machine is free software: you can redistribute it and/or modify it under the
 DXF2Machine is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. 
 
 You should have received a copy of the GNU General Public License along with DXF2Machine. If not, see <http://www.gnu.org/licenses/>.
+
+For more information, contact us at: dxf2machine@gmail.com
   --------------------------------------------------------------------------------------------*/
 
-package cggDatos;
 
-public class EcuacionEntidad {
+package d2mDatos;
+/**
+ * This class defines the structure of Herramienta.
+ * Herramienta is a data structure that stores the parameters of a given tool.
+ * @author: Celeste G. Guagliano
+ * @version: 0.0.1
+ * 
+ */ 
+public class Herramienta {
+	public double Diametro = 0;
+	public double Avance = 0;
+	public double Velocidad = 0;
+	public double Pasada = 0;
+	public double Numero = 0;
+	public double Zseguro=0;
+	public double Zcambio=0;
+
+	public Herramienta(double num, double dia, double ava, double velo,
+			double pasa,double zseg,double zcam) {
+		this.Numero = num;
+		this.Diametro = dia;
+		this.Velocidad = velo;
+		this.Avance = ava;
+		this.Pasada = pasa;
+		this.Zseguro=zseg;
+		this.Zcambio=zcam;
+	}
 
 }

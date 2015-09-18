@@ -15,6 +15,8 @@ See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with DXF2Machine. 
 If not, see <http://www.gnu.org/licenses/>.
+
+For more information, contact us at: dxf2machine@gmail.com
   ----------------------------------------------------------------------------------------*/
 
 /*
@@ -26,7 +28,7 @@ If not, see <http://www.gnu.org/licenses/>.
 /*
  * modification history (new versions first)
  * -----------------------------------------------------------
- * 20141002 v0.0.2 CeGu add obtenerDatos() method
+ * 20141002 v0.0.1 CeGu add obtenerDatos() method
  * 20140428 v0.0.1 CeGu fork from DXF project
 
 */    
@@ -34,7 +36,7 @@ If not, see <http://www.gnu.org/licenses/>.
 /**
  * Class to manage the entities's data.
  * @author: Stephan Soulard, Edouard Vanhauwaert
- * @version: 13/01/15 by Celeste Guagliano
+ * @version: 0.0.1 by Celeste Guagliano
  * 
  */ 
 package myDXF.Entities;

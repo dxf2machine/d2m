@@ -8,9 +8,11 @@ DXF2Machine is free software: you can redistribute it and/or modify it under the
 DXF2Machine is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. 
 
 You should have received a copy of the GNU General Public License along with DXF2Machine. If not, see <http://www.gnu.org/licenses/>.
+
+For more information, contact us at: dxf2machine@gmail.com
   --------------------------------------------------------------------------------------------*/
 
-package cggTablas;
+package d2mTablas;
 
 import java.io.File;
 import java.util.Enumeration;
@@ -22,13 +24,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 
-import cggDatos.DatosCirculo;
-import cggDatos.datos;
-import cggGCode.GCode;
-import cggGCode.GCodeMetodoContorneado;
-import cggGCode.GCodeMetodoGeneral;
-import cggGCode.GCodeMetodoTaladrado;
 import d2mColeccion.ColeccionFunciones;
+import d2mDatos.DatosCirculo;
+import d2mDatos.datos;
+import d2mGCode.GCode;
+import d2mGCode.GCodeMetodoContorneado;
+import d2mGCode.GCodeMetodoGeneral;
+import d2mGCode.GCodeMetodoTaladrado;
 import myDXF.DXF_Loader;
 //import myDXF.GCode.areaTexto;
 import myDXF.Graphics.myCanvas;
@@ -37,8 +39,8 @@ import myDXF.Graphics.myCanvas;
 /**
  * This class access the general table of entities of DXF project and collect the admitted entities for DXF2Machine in a new table.
  * @author: Celeste G. Guagliano
- * @version: 13/01/15
- * 
+ * @version:0.0.1 
+ ** 
  */ 
 public class Tabla {
 

@@ -8,28 +8,52 @@ DXF2Machine is free software: you can redistribute it and/or modify it under the
 DXF2Machine is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. 
 
 You should have received a copy of the GNU General Public License along with DXF2Machine. If not, see <http://www.gnu.org/licenses/>.
+
+For more information, contact us at: dxf2machine@gmail.com
   --------------------------------------------------------------------------------------------*/
 
-package cggOptimizacion;
+package d2mTablas;
 
+import java.util.Enumeration;
+import java.util.HashSet;
 import java.util.Hashtable;
 
+import javax.swing.JTextArea;
+
 import d2mColeccion.ColeccionFunciones;
+import d2mDatos.datos;
+import d2mGCode.GCode;
 
 /**
- * This class implements an algorithm of optimization for lists.
+ * This class access the general table of entities of DXF2Machine and collect the entities matching a color code in a new table.
  * This kind of optimization just returns the same list that receives.  
  * @author: Celeste G. Guagliano
- * @version: 13/01/15
+ * @version: 0.0.1
  * 
  */ 
 
-public class Optimizacion {
+public class TablaContorno {
+	public static Hashtable ListaContorno = new Hashtable();
+	public static int colorContorno = 5;
+	
+	/**
+	 * Method to get the entities of the contour list.
+	 * @return an entities list.
+	 */
 
-	public static Hashtable Optimizacion(Hashtable lista) {
-		Hashtable listaOptimizada = new Hashtable();
-		listaOptimizada = lista;
-		return listaOptimizada;
+	public static Hashtable obtenerTabla() {
+		resetearTablas();
+		ListaContorno = ColeccionFunciones.ObtenerSubconjunto(
+		Tabla.ListaEntidades, colorContorno);
+		return ListaContorno;
+	}
+
+	/**
+	 *  Method to reset the content of the list and the text area were the code is generated.
+	 */
+	public static void resetearTablas() {
+		ListaContorno.clear();
+		GCode.contorneado.setText("");
 	}
 
 }

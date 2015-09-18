@@ -8,33 +8,35 @@ DXF2Machine is free software: you can redistribute it and/or modify it under the
 DXF2Machine is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. 
 
 You should have received a copy of the GNU General Public License along with DXF2Machine. If not, see <http://www.gnu.org/licenses/>.
+
+For more information, contact us at: dxf2machine@gmail.com
   --------------------------------------------------------------------------------------------*/
 
 
-package cggGCode;
+package d2mGCode;
 
 import java.util.Enumeration;
 import java.util.Hashtable;
 
 import javax.swing.JOptionPane;
 
-import cggDatos.Coordenadas;
-import cggDatos.DatosArcos;
-import cggDatos.DatosCirculo;
-import cggDatos.DatosLinea;
-import cggDatos.EcuacionCircunferencia;
-import cggDatos.EcuacionEntidad;
-import cggDatos.EcuacionRecta;
-import cggDatos.FormatoNumeros;
-import cggDatos.Herramienta;
-import cggDatos.datos;
-import cggOptimizacion.OptimizacionMetodo2;
 import d2mColeccion.ColeccionFunciones;
+import d2mDatos.Coordenadas;
+import d2mDatos.DatosArcos;
+import d2mDatos.DatosCirculo;
+import d2mDatos.DatosLinea;
+import d2mDatos.EcuacionCircunferencia;
+import d2mDatos.EcuacionEntidad;
+import d2mDatos.EcuacionRecta;
+import d2mDatos.FormatoNumeros;
+import d2mDatos.Herramienta;
+import d2mDatos.datos;
+import d2mOptimizacion.OptimizacionMetodo2;
 
 /**
  * This class implements the necessary algorithms to calculate a new contour compensating the radius of the selected tool to operate.  
  * @author: Celeste G. Guagliano
- * @version: 13/01/15
+ * @version: 0.0.1
  * 
  */ 
 public class compensacionContorno {

@@ -13,15 +13,17 @@ See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with DXF2Machine. 
 If not, see <http://www.gnu.org/licenses/>.
+
+For more information, contact us at: dxf2machine@gmail.com
   ----------------------------------------------------------------------------------------*/
 
-package cggDatos;
+package d2mDatos;
 
 /**
  * This class defines the structure of Coordenadas.
  * Coordenadas is a data structure that stores a pair of coordinates.
  * @author: Celeste G. Guagliano
- * @version: 13/01/15
+ * @version: 0.0.1
  * 
  */ 
 

@@ -15,6 +15,8 @@ See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with DXF2Machine. 
 If not, see <http://www.gnu.org/licenses/>.
+
+For more information, contact us at: dxf2machine@gmail.com
   ---------------------------------------------------------------------------------------*/
 
 /*
@@ -26,10 +28,10 @@ If not, see <http://www.gnu.org/licenses/>.
 /*
  * modification history (new versions first)
  * -----------------------------------------------------------
- * 20150113 v0.0.2 CeGu improve mouseClicked() method
- * 20150113 v0.0.2 CeGu improve mouseDragged() method
- * 20150113 v0.0.2 CeGu improve getSelectedObject() method
- * 20150113 v0.0.2 CeGu improve mousePressed() method
+ * 20150113 v0.0.1 CeGu improve mouseClicked() method
+ * 20150113 v0.0.1 CeGu improve mouseDragged() method
+ * 20150113 v0.0.1 CeGu improve getSelectedObject() method
+ * 20150113 v0.0.1 CeGu improve mousePressed() method
  * 20140428 v0.0.1 CeGu fork from DXF project
 
 */    
@@ -94,7 +96,7 @@ import myDXF.Header.myTable;
 /**
  * Class to manage the canvas
  * @author: Stephan Soulard, Edouard Vanhauwaert
- * @version: 13/01/15 by Celeste Guagliano
+ * @version: 0.0.1 by Celeste Guagliano
  * 
  */ 
 public class myCanvas extends Canvas implements MouseListener,

@@ -15,6 +15,8 @@ See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with DXF2Machine. 
 If not, see <http://www.gnu.org/licenses/>.
+
+For more information, contact us at: dxf2machine@gmail.com
   ---------------------------------------------------------------------------------------*/
 
 /*
@@ -26,7 +28,7 @@ If not, see <http://www.gnu.org/licenses/>.
 /*
  * modification history (new versions first)
  * -----------------------------------------------------------
- * 20150113 v0.0.2 CeGu modified ColorMap
+ * 20150113 v0.0.1 CeGu modified ColorMap
  * 20140428 v0.0.1 CeGu fork from DXF project
 
 */    
@@ -38,7 +40,7 @@ import java.awt.Color;
 /**
  * Class to generate a color map
  * @author: Stephan Soulard, Edouard Vanhauwaert
- * @version: 13/01/15 by Celeste Guagliano
+ * @version: 0.0.1 by Celeste Guagliano
  * 
  */ 
 public final class DXF_Color {

@@ -8,20 +8,22 @@ DXF2Machine is free software: you can redistribute it and/or modify it under the
 DXF2Machine is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. 
 
 You should have received a copy of the GNU General Public License along with DXF2Machine. If not, see <http://www.gnu.org/licenses/>.
+
+For more information, contact us at: dxf2machine@gmail.com
   --------------------------------------------------------------------------------------------*/
 
-package cggDatos;
+package d2mDatos;
 
 
-import cggGCode.GCode;
-import cggGCode.compensacionContorno;
 import d2mColeccion.ColeccionFunciones;
+import d2mGCode.GCode;
+import d2mGCode.compensacionContorno;
 
 /**
  * This class defines the structure of DatosLinea
  * DatosLinea is a data structure that stores the parameters needed to generate a line.
  * @author: Celeste G. Guagliano
- * @version: 13/01/15
+ * @version: 0.0.1
  * 
  */ 
 

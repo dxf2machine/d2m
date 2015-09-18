@@ -8,30 +8,39 @@ DXF2Machine is free software: you can redistribute it and/or modify it under the
 DXF2Machine is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. 
 
 You should have received a copy of the GNU General Public License along with DXF2Machine. If not, see <http://www.gnu.org/licenses/>.
+
+For more information, contact us at: dxf2machine@gmail.com
   --------------------------------------------------------------------------------------------*/
 
-package cggDatos;
+package d2mDatos;
+
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+
+import javax.swing.JOptionPane;
 
 /**
- * This class defines the structure of EcuacionCircunferencia.
- * EcuacionCircunferencia is a data structure that stores the parameters of the equation of a given circle.
+ * This class defines the number's format.
  * @author: Celeste G. Guagliano
- * @version: 13/01/15
+ * @version: 0.0.1
  * 
  */ 
-
-public class EcuacionCircunferencia extends EcuacionEntidad{
-	public double centroX;  
-	public double centroY;  
-	public double Radio;
+public class FormatoNumeros {
 	
-
-	public EcuacionCircunferencia(double cx, double cy,double r) {
-			this.centroX = cx;
-			this.centroY = cy;
-			this.Radio = r;
-	
-		}
-	
-	
+	/** This method sets the decimal format for a number. 
+	 * @param numero is a number.
+	 * @return a number.
+	 */
+	public static Object formatearNumero(double numero){
+		DecimalFormatSymbols simbolos = new DecimalFormatSymbols();
+		simbolos.setDecimalSeparator('.');
+		DecimalFormat formateador = new DecimalFormat("#####.###",simbolos);
+		try{
+		numero=Double.parseDouble(formateador.format(numero));
+		return numero;
+		}catch(NumberFormatException ex){
+			 JOptionPane.showMessageDialog(null, "Imposible generar el mecanizado solicitado","Error" ,JOptionPane.ERROR_MESSAGE);
+			};
+		return null;
+}
 }
