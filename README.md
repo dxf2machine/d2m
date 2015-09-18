@@ -1,7 +1,7 @@
 # DXF2Machine
 This project is a fork from DXF project. DXF2Machine translate's DXF files into machine code.
 
-For more information you can see the javadoc [here](http://cguagliano.github.io/DXF2Machine/javadoc/)
+For more information you can see the javadoc [here](http://dxf2machine.github.io/d2m/doc/)
 
    Copyright 2014, Celeste Gabriela Guagliano. 
 
