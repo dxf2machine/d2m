@@ -30,7 +30,7 @@ import fr.epsi.dxf.Entities.myLine;
  * @author CGG
  *
  */
-public class Drilling {
+public class Drilling extends Feature {
 	
 	private static Hashtable drillingEntities;
 	private static int colorContour;

@@ -37,6 +37,7 @@ import ar.d2m.features.ContourMilling;
 import ar.d2m.features.Drilling;
 import ar.d2m.features.Engraving;
 import ar.d2m.features.FaceMilling;
+import ar.d2m.loader.D2MLoader;
 import ar.d2m.machines.Machine;
 import ar.d2m.tools.Tool;
 import fr.epsi.dxf.DXF_Loader;
@@ -74,24 +75,33 @@ public class MillingGraphicalInterface extends GraphicalInterface implements Act
 		DXF.GCode.add(Tools);
 		DXF.setVisible(true);
 	    generate.addActionListener(this);	
+	    set.setFeature1.addActionListener(this);
+		set.setFeature2.addActionListener(this);
+		set.setFeature3.addActionListener(this);
+		set.setFeature4.addActionListener(this);
+	    
 	   }
 	
 	
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==generate){
 			if(set.feature1.isSelected()==true){
-				new FaceMilling();
+				D2MLoader.machine.first=new FaceMilling();
 			}
 			if(set.feature2.isSelected()==true){
-				new ContourMilling();
+				D2MLoader.machine.second=new ContourMilling();
 			}
 			if(set.feature3.isSelected()==true){
-				new Engraving();
+				D2MLoader.machine.third=new Engraving();
 			}
 			if(set.feature4.isSelected()==true){
-				new Drilling();
+				D2MLoader.machine.fourth=new Drilling();
 			}
 		}
+		if(e.getSource()==set.setFeature1){
+			D2MLoader.machine.first.setEntitiesTable();
+		}
+		
 	}
 
 }

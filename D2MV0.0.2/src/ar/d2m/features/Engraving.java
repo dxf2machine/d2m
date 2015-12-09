@@ -28,7 +28,7 @@ import fr.epsi.dxf.Entities.myEntity;
  * @author CGG
  *
  */
-public class Engraving {
+public class Engraving extends Feature {
 	
 	private static Hashtable engravingEntities;
 	private static int color;

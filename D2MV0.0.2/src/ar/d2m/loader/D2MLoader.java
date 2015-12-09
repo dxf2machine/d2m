@@ -30,6 +30,7 @@ public class D2MLoader{
 	public static void updateMachine(Machine setMachine) {
 		DXF.GCode.removeAll();
 		setMachine.setIface(DXF);
+		machine=setMachine;
 		
 	}
 

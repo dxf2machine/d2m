@@ -19,6 +19,10 @@ For more information, contact us at: dxf2machine@gmail.com
 
 package ar.d2m.machines;
 
+import ar.d2m.features.ContourInTurning;
+import ar.d2m.features.ContourOutTurning;
+import ar.d2m.features.Cutting;
+import ar.d2m.features.Drilling;
 import ar.d2m.graphicalinterface.TurningGraphicalInterface;
 import fr.epsi.dxf.DXF_Loader;
 
@@ -30,6 +34,10 @@ public class TurningMachine  extends Machine{
 	
 	public TurningMachine (DXF_Loader DXF){
 		DXF.GCode.removeAll();
+		first= new ContourOutTurning();
+		second= new ContourInTurning();
+		third= new Cutting();
+		fourth= new Drilling();
 		
 	}
 

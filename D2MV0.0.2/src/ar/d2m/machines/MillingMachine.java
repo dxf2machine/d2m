@@ -19,6 +19,10 @@ For more information, contact us at: dxf2machine@gmail.com
 
 package ar.d2m.machines;
 
+import ar.d2m.features.ContourMilling;
+import ar.d2m.features.Drilling;
+import ar.d2m.features.Engraving;
+import ar.d2m.features.FaceMilling;
 import ar.d2m.graphicalinterface.GraphicalInterface;
 import ar.d2m.graphicalinterface.MillingGraphicalInterface;
 import fr.epsi.dxf.DXF_Loader;
@@ -32,7 +36,10 @@ public class MillingMachine extends Machine {
 	
 	public MillingMachine(DXF_Loader DXF){
 		DXF.GCode.removeAll();
-		
+		first= new FaceMilling();
+		second= new ContourMilling();
+		third= new Engraving();
+		fourth= new Drilling();
 	}
 	
 	public void setIface(DXF_Loader DXF){

@@ -47,6 +47,10 @@ public class FeaturesSettings  extends JPanel implements ActionListener{
 	public JTextField textf2;
 	public JTextField textf3;
 	public JTextField textf4;
+	public JButton setFeature1;
+	public JButton setFeature2;
+	public JButton setFeature3;
+	public JButton setFeature4;
 	public JLabel space;
 	public FeaturesSettings(){
 		this.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -55,10 +59,10 @@ public class FeaturesSettings  extends JPanel implements ActionListener{
 		this.setLayout(new GridLayout(7,3));
 		JLabel feature= new JLabel("Feature");
 		JLabel depth= new JLabel("Z depth");
-		JLabel space= new JLabel("          ");
+		space= new JLabel("          ");
 		this.add(feature);
 		this.add(depth);
-		this.add(space);
+		this.add(new JLabel("set entities"));
 		feature1= new JCheckBox(GraphicalInterface.res.getString("feature1"));
 		feature2= new JCheckBox(GraphicalInterface.res.getString("feature2"));
 		feature3= new JCheckBox(GraphicalInterface.res.getString("feature3"));
@@ -67,19 +71,28 @@ public class FeaturesSettings  extends JPanel implements ActionListener{
 		textf2= new JTextField();
 		textf3= new JTextField();
 		textf4= new JTextField();
+		setFeature1= new JButton("add Entities...");
+		setFeature2= new JButton("add Entities...");
+		setFeature3= new JButton("add Entities...");
+		setFeature4= new JButton("add Entities...");
 		this.add(feature1);
 		this.add(textf1);
+		this.add(setFeature1);
 		this.add(feature2);
 		this.add(textf2);
+		this.add(setFeature2);
 		this.add(feature3);
 		this.add(textf3);
+		this.add(setFeature3);
 		this.add(feature4);
 		this.add(textf4);
+		this.add(setFeature4);
 		this.add(space);
 		this.add(space);
 		this.add(space);
 		this.add(space);
 		this.setVisible(true);
+		
 	}
 
 	public void actionPerformed(ActionEvent arg0) {

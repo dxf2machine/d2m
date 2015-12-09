@@ -11,10 +11,9 @@ import fr.epsi.dxf.Graphics.DXF_Color;
 import fr.epsi.dxf.Graphics.myCanvas;
 import fr.epsi.dxf.Graphics.myCoord;
 import fr.epsi.dxf.Header.myLineType;
-
 import ar.d2m.data.Entities;
 
-public class Contour {
+public class Contour extends Feature {
 
 	protected static Hashtable contourEntities;
 	protected static int colorContour;
@@ -44,7 +43,5 @@ public class Contour {
 	dxf._u.currLayer._myEnt.addElement(l);
 	dxf.tree.addEntity(l);
 	dxf._mc.repaint();
-	System.out.println("Se ha dibujado la linea");
 	}
-
 }

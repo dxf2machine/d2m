@@ -32,7 +32,7 @@ import fr.epsi.dxf.Entities.myLine;
  */
 
 
-public class Cutting {
+public class Cutting extends Feature {
 	private static Hashtable cuttingEntities;
 	private static int colorContour;
 	public Cutting(){
@@ -48,7 +48,7 @@ public class Cutting {
 	}
 	
 	public static Hashtable getDrillingEntities(){
-		colorContour=0;
+		
 		cuttingEntities= Entities.getFeature(colorContour);
 		System.out.println(cuttingEntities.size());
 		return cuttingEntities;

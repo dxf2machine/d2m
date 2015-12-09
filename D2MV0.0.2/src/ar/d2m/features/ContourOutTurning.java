@@ -19,9 +19,15 @@ For more information, contact us at: dxf2machine@gmail.com
 
 package ar.d2m.features;
 
+import java.awt.Color;
 import java.util.Hashtable;
 
+import javax.swing.JFrame;
+
+import ar.d2m.graphicalinterface.DefineContour;
+import ar.d2m.loader.D2MLoader;
 import fr.epsi.dxf.Entities.myEntity;
+import fr.epsi.dxf.Graphics.myJColorChooser;
 
 /**
  * @author CGG
@@ -31,10 +37,17 @@ public class ContourOutTurning extends Contour {
 
 	private static Hashtable contourEntities;
 	private static int colorContour;
+	public JFrame selector;
 	public ContourOutTurning(){
-		contourEntities= new Hashtable<String,myEntity>();
+		contourEntities= new Hashtable<Integer,myEntity>();
 		contourEntities=getContourEntities();
 	}
 	
-	
+	public void setEntitiesTable() {
+		// TODO Auto-generated method stub
+	D2MLoader.DXF._jcc.changingColor=new Color(0xff, 0x00, 0x00);
+	myJColorChooser.col.setBackground(new Color (0xff,0x00,0x00));
+	selector=new DefineContour();
+	contourEntities=((DefineContour) selector).setContour();
+	}
 }

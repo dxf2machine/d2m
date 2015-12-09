@@ -70,7 +70,12 @@ public class TurningGraphicalInterface extends GraphicalInterface implements Act
 	DXF.GCode.add(SetUp);
 	DXF.GCode.add(Tools);
 	DXF.setVisible(true);
-	generate.addActionListener(this);	
+	generate.addActionListener(this);
+	
+	set.setFeature1.addActionListener(this);
+	set.setFeature2.addActionListener(this);
+	set.setFeature3.addActionListener(this);
+	set.setFeature4.addActionListener(this);
    }
 /*
  * Esta clase va a empaquetar todos los elementos de la interfaz grafica del torno y creara una 
@@ -92,6 +97,10 @@ public class TurningGraphicalInterface extends GraphicalInterface implements Act
 			if(set.feature4.isSelected()==true){
 				new Drilling();
 			}
+		}
+		if (e.getSource()==set.setFeature1){
+			D2MLoader.machine.first.setEntitiesTable();
+					
 		}
 	}
 		
