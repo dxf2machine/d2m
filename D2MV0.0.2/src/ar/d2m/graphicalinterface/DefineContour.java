@@ -37,8 +37,12 @@ public class DefineContour extends JFrame implements ActionListener{
 		panel= new JPanel();
 		panel.setLayout(new BorderLayout());
 		this.add(panel);
-		panel.add(addLine);
-		panel.add(addArc);
+		JPanel selector= new JPanel(new GridLayout(1,2));
+		JPanel okcancel= new JPanel(new GridLayout(1,2));
+		selector.add(addLine);
+		selector.add(addArc);
+		panel.add(selector,BorderLayout.NORTH);
+		//panel.add(addArc,BorderLayout.NORTH);
 		line= new JPanel();
 		arc= new JPanel();
 		InternationalFormatter formato = new InternationalFormatter();
@@ -49,12 +53,20 @@ public class DefineContour extends JFrame implements ActionListener{
 		yinicial= new JFormattedTextField(formato);
 		xfinal= new JFormattedTextField(formato);
 		yfinal= new JFormattedTextField(formato);
+		line.setLayout(new GridLayout(2,4));
+		line.add(new JLabel("Start (X,Y)"));
 		line.add(xinicial);
+		line.add(new JLabel(" , "));
 		line.add(yinicial);
+		line.add(new JLabel("End (X,Y)"));
 		line.add(xfinal);
+		line.add(new JLabel(" , "));
 		line.add(yfinal);
-		panel.add(accept);
-		panel.add(cancel);
+		okcancel.add(accept);
+		okcancel.add(cancel);
+		panel.add(okcancel,BorderLayout.SOUTH);
+		panel.add(line,BorderLayout.CENTER);
+		line.setVisible(false);
 		this.setVisible(true);
 		addLine.addActionListener(this);
 		this.setMinimumSize(new Dimension(200,200));
@@ -70,9 +82,15 @@ public class DefineContour extends JFrame implements ActionListener{
 		if(arg0.getSource()==accept){
 			contour.put(contour.size()+1,Feature.drawLine(D2MLoader.DXF,(Integer)xinicial.getValue(),(Integer)yinicial.getValue(),(Integer)xfinal.getValue(),(Integer)yfinal.getValue()));
 			System.out.println(contour.size());
+			xinicial.setValue(xfinal.getValue());
+			yinicial.setValue(yfinal.getValue());
+			xinicial.setEnabled(false);
+			yinicial.setEnabled(false);
+			xfinal.setValue(0);
+			yfinal.setValue(0);
 		}
 		if(arg0.getSource()==addLine){
-			panel.add(line);
+			line.setVisible(true);
 		}
 	}
 }
